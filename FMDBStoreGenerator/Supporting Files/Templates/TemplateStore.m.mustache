@@ -1,0 +1,77 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "{{prefix}}{{entityClassName}}{{storeSuffix}}.h"
+#import "{{prefix}}{{entityClassName}}{{entitySuffix}}.h"
+
+@implementation {{prefix}}{{entityClassName}}{{storeSuffix}}
+
+#pragma mark - auto-generated
+
+{{#columnInfos}}static NSString* const {{columnNameUpperCase}} = @"{{columnName}}";
+{{/columnInfos}}
+- (NSString *) tableName{
+    return @"{{tableName}}";
+}
+
+- (NSArray *) columnNames {
+    return [[self primaryKeyColumnNames] arrayByAddingObjectsFromArray:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSArray*) primaryKeyColumnNames
+{
+    return @[{{#withPosition(primaryKeyInfo)}}{{columnNameUpperCase}}{{^ isEnd }},{{/ isEnd }}
+        {{/withPosition(primaryKeyInfo)}}];
+}
+
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    return @[{{#withPosition(notPrimaryKeyInfo)}}{{columnNameUpperCase}}{{^ isEnd }},{{/ isEnd }}
+        {{/withPosition(notPrimaryKeyInfo)}}];
+}
+
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+   {{prefix}}{{entityClassName}}{{entitySuffix}} *castEntity = ({{prefix}}{{entityClassName}}{{entitySuffix}}*)entity;
+    return
+    @[{{#withPosition(primaryKeyInfo)}}
+      @{@"name":{{columnNameUpperCase}},
+        @"value":{{#isNSInteger}}@({{/isNSInteger}}castEntity.{{propertyName}}{{#isNSInteger}}){{/isNSInteger}}
+        }{{^ isEnd}},{{/ isEnd}}{{/withPosition(primaryKeyInfo)}}
+      ];
+}
+
+
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    {{prefix}}{{entityClassName}}{{entitySuffix}} *castEntity = ({{prefix}}{{entityClassName}}{{entitySuffix}}*)entity;
+    return
+    @[
+      {{#withPosition(notPrimaryKeyInfo)}}@{@"name":{{columnNameUpperCase}},
+        @"value":{{#isBool}}[NSNumber numberWithBool:{{/isBool}}castEntity.{{propertyName}}{{#isBool}}] ?:[NSNumber numberWithBool:NO]{{/isBool}} {{# isNSNumber}}?:[NSNull null]{{/ isNSNumber}}{{# isDate}}?:[NSNull null]{{/ isDate}}
+        }{{^ isEnd}},{{/ isEnd}}
+        {{/withPosition(notPrimaryKeyInfo)}}
+      ];
+
+}
+
+- (ConverterToEntityBlock ) converterToEntityBlock {
+    ConverterToEntityBlock block = ^id(FMResultSet *rs) {
+        
+        {{prefix}}{{entityClassName}}{{entitySuffix}} *entity = [[{{prefix}}{{entityClassName}}{{entitySuffix}} alloc] init];
+{{#withPosition(columnInfos)}}
+        entity.{{propertyName}} = {{#isNSNumber}}[rs columnIsNull:{{columnNameUpperCase}}] ? nil : {{/isNSNumber}}[rs {{#isNSInteger}}intForColumn{{/isNSInteger}}{{#isNSNumber}}objectForColumnName{{/isNSNumber}}{{#isDate}}dateForColumn{{/isDate}}{{#isBool}}boolForColumn{{/isBool}}{{#isVarchar}}stringForColumn{{/isVarchar}}:{{columnNameUpperCase}}];{{/withPosition(columnInfos)}}
+        return entity;
+    };
+    
+    return block;
+}
+
+@end

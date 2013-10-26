@@ -1,0 +1,32 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "{{prefix}}TransactionService.h"
+#import "{{prefix}}DatabaseManager.h"
+
+@implementation {{prefix}}TransactionService
+
+- (id) init {
+    self = [super init];
+    
+    if (self) {
+        _queue = [[{{prefix}}DatabaseManager sharedManager] databaseQueue];        
+    }
+    
+    return self;
+}
+
+- (void)dealloc {
+	if (_queue) {
+		[_queue close];
+	}
+}
+
+@end

@@ -1,0 +1,679 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		156DFCBB17F975B600E0988F /* KO2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DFCA317F975B600E0988F /* KO2AppDelegate.m */; };
+		156DFCBC17F975B600E0988F /* KO2ColumnInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DFCA617F975B600E0988F /* KO2ColumnInfo.m */; };
+		156DFCBD17F975B600E0988F /* KO2TableInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DFCA817F975B600E0988F /* KO2TableInfo.m */; };
+		156DFCC417F975B600E0988F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 156DFCB417F975B600E0988F /* Credits.rtf */; };
+		156DFCC517F975B600E0988F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 156DFCB617F975B600E0988F /* InfoPlist.strings */; };
+		156DFCC717F975B600E0988F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DFCBA17F975B600E0988F /* main.m */; };
+		15E5A77A26DD4C9CB26921B5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364168CE124B414AAF8BFACE /* libPods.a */; };
+		15F23968174CCAF600804F69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F23967174CCAF600804F69 /* Cocoa.framework */; };
+		15F23986174CCAF600804F69 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F23985174CCAF600804F69 /* SenTestingKit.framework */; };
+		15F23987174CCAF600804F69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F23967174CCAF600804F69 /* Cocoa.framework */; };
+		15F2398F174CCAF600804F69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F2398D174CCAF600804F69 /* InfoPlist.strings */; };
+		15F23992174CCAF600804F69 /* FMDBStoreGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F23991174CCAF600804F69 /* FMDBStoreGeneratorTests.m */; };
+		9F421CB71807C1B3004CA245 /* TemplateEntity.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB31807C1B3004CA245 /* TemplateEntity.h.mustache */; };
+		9F421CB81807C1B3004CA245 /* TemplateEntity.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB41807C1B3004CA245 /* TemplateEntity.m.mustache */; };
+		9F421CB91807C1B3004CA245 /* TemplateStore.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB51807C1B3004CA245 /* TemplateStore.h.mustache */; };
+		9F421CBA1807C1B3004CA245 /* TemplateStore.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB61807C1B3004CA245 /* TemplateStore.m.mustache */; };
+		9F421CBD1807C1FF004CA245 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CBC1807C1FF004CA245 /* MainMenu.xib */; };
+		9F421CC41807D73E004CA245 /* KO2Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CC31807D73E004CA245 /* KO2Generator.m */; };
+		9F421CD11807FC58004CA245 /* KO2GeneratorService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CCA1807FC58004CA245 /* KO2GeneratorService.m */; };
+		9F421CD21807FC58004CA245 /* KO2GeneratorStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CCD1807FC58004CA245 /* KO2GeneratorStore.m */; };
+		9F421CD31807FC58004CA245 /* PositionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CD01807FC58004CA245 /* PositionFilter.m */; };
+		9F900E23180D4176004755E9 /* KO2SqliteMasterStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F900E22180D4176004755E9 /* KO2SqliteMasterStore.m */; };
+		9F967CCD181E92A20042F754 /* TemplateDatabaseManager.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CC7181E92A20042F754 /* TemplateDatabaseManager.h.mustache */; };
+		9F967CCE181E92A20042F754 /* TemplateDatabaseManager.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CC8181E92A20042F754 /* TemplateDatabaseManager.m.mustache */; };
+		9F967CCF181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CC9181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache */; };
+		9F967CD0181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CCA181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache */; };
+		9F967CD1181E92A20042F754 /* TemplateTransactionService.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CCB181E92A20042F754 /* TemplateTransactionService.h.mustache */; };
+		9F967CD2181E92A20042F754 /* TemplateTransactionService.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CCC181E92A20042F754 /* TemplateTransactionService.m.mustache */; };
+		E3E1785121A5483799665D7A /* libPods-FMDBStoreGeneratorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78F9607EFE2415FAE838B3D /* libPods-FMDBStoreGeneratorTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15F23988174CCAF600804F69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15F2395C174CCAF600804F69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15F23963174CCAF600804F69;
+			remoteInfo = FMDBStoreGenerator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		156DFCA217F975B600E0988F /* KO2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2AppDelegate.h; sourceTree = "<group>"; };
+		156DFCA317F975B600E0988F /* KO2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2AppDelegate.m; sourceTree = "<group>"; };
+		156DFCA517F975B600E0988F /* KO2ColumnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2ColumnInfo.h; sourceTree = "<group>"; };
+		156DFCA617F975B600E0988F /* KO2ColumnInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2ColumnInfo.m; sourceTree = "<group>"; };
+		156DFCA717F975B600E0988F /* KO2TableInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2TableInfo.h; sourceTree = "<group>"; };
+		156DFCA817F975B600E0988F /* KO2TableInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2TableInfo.m; sourceTree = "<group>"; };
+		156DFCAE17F975B600E0988F /* FMDBStoreGenerator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FMDBStoreGenerator-Info.plist"; sourceTree = "<group>"; };
+		156DFCAF17F975B600E0988F /* FMDBStoreGenerator-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDBStoreGenerator-Prefix.pch"; sourceTree = "<group>"; };
+		156DFCB517F975B600E0988F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		156DFCB717F975B600E0988F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		156DFCBA17F975B600E0988F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		15F23964174CCAF600804F69 /* FMDBStoreGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMDBStoreGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15F23967174CCAF600804F69 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		15F2396A174CCAF600804F69 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		15F2396B174CCAF600804F69 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		15F2396C174CCAF600804F69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		15F23984174CCAF600804F69 /* FMDBStoreGeneratorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMDBStoreGeneratorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15F23985174CCAF600804F69 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		15F2398C174CCAF600804F69 /* FMDBStoreGeneratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FMDBStoreGeneratorTests-Info.plist"; sourceTree = "<group>"; };
+		15F2398E174CCAF600804F69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		15F23990174CCAF600804F69 /* FMDBStoreGeneratorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBStoreGeneratorTests.h; sourceTree = "<group>"; };
+		15F23991174CCAF600804F69 /* FMDBStoreGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBStoreGeneratorTests.m; sourceTree = "<group>"; };
+		364168CE124B414AAF8BFACE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBStoreGeneratorTests.xcconfig"; path = "Pods/Pods-FMDBStoreGeneratorTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		9F421CB31807C1B3004CA245 /* TemplateEntity.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateEntity.h.mustache; sourceTree = "<group>"; };
+		9F421CB41807C1B3004CA245 /* TemplateEntity.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateEntity.m.mustache; sourceTree = "<group>"; };
+		9F421CB51807C1B3004CA245 /* TemplateStore.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateStore.h.mustache; sourceTree = "<group>"; };
+		9F421CB61807C1B3004CA245 /* TemplateStore.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateStore.m.mustache; sourceTree = "<group>"; };
+		9F421CBC1807C1FF004CA245 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		9F421CC21807D73E004CA245 /* KO2Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2Generator.h; sourceTree = "<group>"; };
+		9F421CC31807D73E004CA245 /* KO2Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2Generator.m; sourceTree = "<group>"; };
+		9F421CC91807FC58004CA245 /* KO2GeneratorService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2GeneratorService.h; sourceTree = "<group>"; };
+		9F421CCA1807FC58004CA245 /* KO2GeneratorService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2GeneratorService.m; sourceTree = "<group>"; };
+		9F421CCC1807FC58004CA245 /* KO2GeneratorStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2GeneratorStore.h; sourceTree = "<group>"; };
+		9F421CCD1807FC58004CA245 /* KO2GeneratorStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2GeneratorStore.m; sourceTree = "<group>"; };
+		9F421CCF1807FC58004CA245 /* PositionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionFilter.h; sourceTree = "<group>"; };
+		9F421CD01807FC58004CA245 /* PositionFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionFilter.m; sourceTree = "<group>"; };
+		9F900E21180D4176004755E9 /* KO2SqliteMasterStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2SqliteMasterStore.h; sourceTree = "<group>"; };
+		9F900E22180D4176004755E9 /* KO2SqliteMasterStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2SqliteMasterStore.m; sourceTree = "<group>"; };
+		9F967CC7181E92A20042F754 /* TemplateDatabaseManager.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateDatabaseManager.h.mustache; sourceTree = "<group>"; };
+		9F967CC8181E92A20042F754 /* TemplateDatabaseManager.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateDatabaseManager.m.mustache; sourceTree = "<group>"; };
+		9F967CC9181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateStoreFmdbBase.h.mustache; sourceTree = "<group>"; };
+		9F967CCA181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateStoreFmdbBase.m.mustache; sourceTree = "<group>"; };
+		9F967CCB181E92A20042F754 /* TemplateTransactionService.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateTransactionService.h.mustache; sourceTree = "<group>"; };
+		9F967CCC181E92A20042F754 /* TemplateTransactionService.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateTransactionService.m.mustache; sourceTree = "<group>"; };
+		9F967D88181FDF210042F754 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E78F9607EFE2415FAE838B3D /* libPods-FMDBStoreGeneratorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FMDBStoreGeneratorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15F23961174CCAF600804F69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F23968174CCAF600804F69 /* Cocoa.framework in Frameworks */,
+				15E5A77A26DD4C9CB26921B5 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15F23980174CCAF600804F69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F23986174CCAF600804F69 /* SenTestingKit.framework in Frameworks */,
+				15F23987174CCAF600804F69 /* Cocoa.framework in Frameworks */,
+				E3E1785121A5483799665D7A /* libPods-FMDBStoreGeneratorTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		156DFCA117F975B600E0988F /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				156DFCA217F975B600E0988F /* KO2AppDelegate.h */,
+				156DFCA317F975B600E0988F /* KO2AppDelegate.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		156DFCA417F975B600E0988F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				156DFCA517F975B600E0988F /* KO2ColumnInfo.h */,
+				156DFCA617F975B600E0988F /* KO2ColumnInfo.m */,
+				156DFCA717F975B600E0988F /* KO2TableInfo.h */,
+				156DFCA817F975B600E0988F /* KO2TableInfo.m */,
+				9F421CC21807D73E004CA245 /* KO2Generator.h */,
+				9F421CC31807D73E004CA245 /* KO2Generator.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		156DFCAD17F975B600E0988F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F421CB21807C1B3004CA245 /* Templates */,
+				156DFCAE17F975B600E0988F /* FMDBStoreGenerator-Info.plist */,
+				156DFCAF17F975B600E0988F /* FMDBStoreGenerator-Prefix.pch */,
+				156DFCB417F975B600E0988F /* Credits.rtf */,
+				156DFCB617F975B600E0988F /* InfoPlist.strings */,
+				156DFCBA17F975B600E0988F /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15F2395B174CCAF600804F69 = {
+			isa = PBXGroup;
+			children = (
+				15F2396D174CCAF600804F69 /* FMDBStoreGenerator */,
+				15F2398A174CCAF600804F69 /* FMDBStoreGeneratorTests */,
+				15F23966174CCAF600804F69 /* Frameworks */,
+				15F23965174CCAF600804F69 /* Products */,
+				0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */,
+				960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		15F23965174CCAF600804F69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15F23964174CCAF600804F69 /* FMDBStoreGenerator.app */,
+				15F23984174CCAF600804F69 /* FMDBStoreGeneratorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15F23966174CCAF600804F69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15F23967174CCAF600804F69 /* Cocoa.framework */,
+				15F23985174CCAF600804F69 /* SenTestingKit.framework */,
+				9F967D88181FDF210042F754 /* XCTest.framework */,
+				15F23969174CCAF600804F69 /* Other Frameworks */,
+				364168CE124B414AAF8BFACE /* libPods.a */,
+				E78F9607EFE2415FAE838B3D /* libPods-FMDBStoreGeneratorTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15F23969174CCAF600804F69 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15F2396A174CCAF600804F69 /* AppKit.framework */,
+				15F2396B174CCAF600804F69 /* CoreData.framework */,
+				15F2396C174CCAF600804F69 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		15F2396D174CCAF600804F69 /* FMDBStoreGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				9F421CBB1807C1FF004CA245 /* Views */,
+				156DFCA117F975B600E0988F /* Control */,
+				9F421CC81807FC58004CA245 /* Service */,
+				156DFCA417F975B600E0988F /* Models */,
+				156DFCAD17F975B600E0988F /* Supporting Files */,
+			);
+			path = FMDBStoreGenerator;
+			sourceTree = "<group>";
+		};
+		15F2398A174CCAF600804F69 /* FMDBStoreGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				15F23990174CCAF600804F69 /* FMDBStoreGeneratorTests.h */,
+				15F23991174CCAF600804F69 /* FMDBStoreGeneratorTests.m */,
+				15F2398B174CCAF600804F69 /* Supporting Files */,
+			);
+			path = FMDBStoreGeneratorTests;
+			sourceTree = "<group>";
+		};
+		15F2398B174CCAF600804F69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15F2398C174CCAF600804F69 /* FMDBStoreGeneratorTests-Info.plist */,
+				15F2398D174CCAF600804F69 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F421CB21807C1B3004CA245 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				9F967CC7181E92A20042F754 /* TemplateDatabaseManager.h.mustache */,
+				9F967CC8181E92A20042F754 /* TemplateDatabaseManager.m.mustache */,
+				9F967CC9181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache */,
+				9F967CCA181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache */,
+				9F967CCB181E92A20042F754 /* TemplateTransactionService.h.mustache */,
+				9F967CCC181E92A20042F754 /* TemplateTransactionService.m.mustache */,
+				9F421CB31807C1B3004CA245 /* TemplateEntity.h.mustache */,
+				9F421CB41807C1B3004CA245 /* TemplateEntity.m.mustache */,
+				9F421CB51807C1B3004CA245 /* TemplateStore.h.mustache */,
+				9F421CB61807C1B3004CA245 /* TemplateStore.m.mustache */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		9F421CBB1807C1FF004CA245 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F421CBC1807C1FF004CA245 /* MainMenu.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9F421CC81807FC58004CA245 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9F421CC91807FC58004CA245 /* KO2GeneratorService.h */,
+				9F421CCA1807FC58004CA245 /* KO2GeneratorService.m */,
+				9F421CCB1807FC58004CA245 /* Stores */,
+				9F421CCE1807FC58004CA245 /* Template */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9F421CCB1807FC58004CA245 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				9F421CCC1807FC58004CA245 /* KO2GeneratorStore.h */,
+				9F421CCD1807FC58004CA245 /* KO2GeneratorStore.m */,
+				9F900E21180D4176004755E9 /* KO2SqliteMasterStore.h */,
+				9F900E22180D4176004755E9 /* KO2SqliteMasterStore.m */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		9F421CCE1807FC58004CA245 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				9F421CCF1807FC58004CA245 /* PositionFilter.h */,
+				9F421CD01807FC58004CA245 /* PositionFilter.m */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15F23963174CCAF600804F69 /* FMDBStoreGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15F23995174CCAF600804F69 /* Build configuration list for PBXNativeTarget "FMDBStoreGenerator" */;
+			buildPhases = (
+				05449209E22445A1BB3F1473 /* Check Pods Manifest.lock */,
+				15F23960174CCAF600804F69 /* Sources */,
+				15F23961174CCAF600804F69 /* Frameworks */,
+				15F23962174CCAF600804F69 /* Resources */,
+				98C52F1D5E2846889493CEF3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FMDBStoreGenerator;
+			productName = FMDBStoreGenerator;
+			productReference = 15F23964174CCAF600804F69 /* FMDBStoreGenerator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		15F23983174CCAF600804F69 /* FMDBStoreGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15F23998174CCAF600804F69 /* Build configuration list for PBXNativeTarget "FMDBStoreGeneratorTests" */;
+			buildPhases = (
+				1084A745490742DC9203B768 /* Check Pods Manifest.lock */,
+				15F2397F174CCAF600804F69 /* Sources */,
+				15F23980174CCAF600804F69 /* Frameworks */,
+				15F23981174CCAF600804F69 /* Resources */,
+				15F23982174CCAF600804F69 /* ShellScript */,
+				E31A31669BAF4DBF970449A5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15F23989174CCAF600804F69 /* PBXTargetDependency */,
+			);
+			name = FMDBStoreGeneratorTests;
+			productName = FMDBStoreGeneratorTests;
+			productReference = 15F23984174CCAF600804F69 /* FMDBStoreGeneratorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15F2395C174CCAF600804F69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KO2;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "";
+			};
+			buildConfigurationList = 15F2395F174CCAF600804F69 /* Build configuration list for PBXProject "FMDBStoreGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 15F2395B174CCAF600804F69;
+			productRefGroup = 15F23965174CCAF600804F69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				15F23963174CCAF600804F69 /* FMDBStoreGenerator */,
+				15F23983174CCAF600804F69 /* FMDBStoreGeneratorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15F23962174CCAF600804F69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F967CD0181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache in Resources */,
+				9F967CCE181E92A20042F754 /* TemplateDatabaseManager.m.mustache in Resources */,
+				156DFCC517F975B600E0988F /* InfoPlist.strings in Resources */,
+				9F967CD2181E92A20042F754 /* TemplateTransactionService.m.mustache in Resources */,
+				156DFCC417F975B600E0988F /* Credits.rtf in Resources */,
+				9F421CB71807C1B3004CA245 /* TemplateEntity.h.mustache in Resources */,
+				9F421CBA1807C1B3004CA245 /* TemplateStore.m.mustache in Resources */,
+				9F967CCD181E92A20042F754 /* TemplateDatabaseManager.h.mustache in Resources */,
+				9F421CB91807C1B3004CA245 /* TemplateStore.h.mustache in Resources */,
+				9F421CB81807C1B3004CA245 /* TemplateEntity.m.mustache in Resources */,
+				9F967CCF181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache in Resources */,
+				9F967CD1181E92A20042F754 /* TemplateTransactionService.h.mustache in Resources */,
+				9F421CBD1807C1FF004CA245 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15F23981174CCAF600804F69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F2398F174CCAF600804F69 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05449209E22445A1BB3F1473 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		1084A745490742DC9203B768 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		15F23982174CCAF600804F69 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		98C52F1D5E2846889493CEF3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		E31A31669BAF4DBF970449A5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-FMDBStoreGeneratorTests-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15F23960174CCAF600804F69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F421CC41807D73E004CA245 /* KO2Generator.m in Sources */,
+				156DFCC717F975B600E0988F /* main.m in Sources */,
+				156DFCBD17F975B600E0988F /* KO2TableInfo.m in Sources */,
+				9F421CD21807FC58004CA245 /* KO2GeneratorStore.m in Sources */,
+				156DFCBC17F975B600E0988F /* KO2ColumnInfo.m in Sources */,
+				9F421CD11807FC58004CA245 /* KO2GeneratorService.m in Sources */,
+				9F421CD31807FC58004CA245 /* PositionFilter.m in Sources */,
+				156DFCBB17F975B600E0988F /* KO2AppDelegate.m in Sources */,
+				9F900E23180D4176004755E9 /* KO2SqliteMasterStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15F2397F174CCAF600804F69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F23992174CCAF600804F69 /* FMDBStoreGeneratorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15F23989174CCAF600804F69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15F23963174CCAF600804F69 /* FMDBStoreGenerator */;
+			targetProxy = 15F23988174CCAF600804F69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		156DFCB417F975B600E0988F /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				156DFCB517F975B600E0988F /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		156DFCB617F975B600E0988F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				156DFCB717F975B600E0988F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		15F2398D174CCAF600804F69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15F2398E174CCAF600804F69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		15F23993174CCAF600804F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		15F23994174CCAF600804F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		15F23996174CCAF600804F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FMDBStoreGenerator/Supporting Files/FMDBStoreGenerator-Prefix.pch";
+				INFOPLIST_FILE = "FMDBStoreGenerator/Supporting Files/FMDBStoreGenerator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		15F23997174CCAF600804F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FMDBStoreGenerator/Supporting Files/FMDBStoreGenerator-Prefix.pch";
+				INFOPLIST_FILE = "FMDBStoreGenerator/Supporting Files/FMDBStoreGenerator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		15F23999174CCAF600804F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMDBStoreGenerator.app/Contents/MacOS/FMDBStoreGenerator";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FMDBStoreGenerator/FMDBStoreGenerator-Prefix.pch";
+				INFOPLIST_FILE = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		15F2399A174CCAF600804F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMDBStoreGenerator.app/Contents/MacOS/FMDBStoreGenerator";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FMDBStoreGenerator/FMDBStoreGenerator-Prefix.pch";
+				INFOPLIST_FILE = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15F2395F174CCAF600804F69 /* Build configuration list for PBXProject "FMDBStoreGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15F23993174CCAF600804F69 /* Debug */,
+				15F23994174CCAF600804F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15F23995174CCAF600804F69 /* Build configuration list for PBXNativeTarget "FMDBStoreGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15F23996174CCAF600804F69 /* Debug */,
+				15F23997174CCAF600804F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15F23998174CCAF600804F69 /* Build configuration list for PBXNativeTarget "FMDBStoreGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15F23999174CCAF600804F69 /* Debug */,
+				15F2399A174CCAF600804F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 15F2395C174CCAF600804F69 /* Project object */;
+}

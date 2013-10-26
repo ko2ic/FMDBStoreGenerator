@@ -1,0 +1,17 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+
+@interface {{prefix}}{{entityClassName}}{{entitySuffix}} : NSObject
+{{#withPosition(columnInfos)}}
+@property({{^isNSInteger}}{{^isBool}}strong,{{/isBool}}{{/isNSInteger}}nonatomic) {{#isNSInteger}}NSInteger{{/isNSInteger}}{{#isNSNumber}}NSNumber*{{/isNSNumber}}{{#isVarchar}}NSString*{{/isVarchar}}{{#isDate}}NSDate*{{/isDate}}{{#isBool}}BOOL{{/isBool}} {{propertyName}};{{/withPosition(columnInfos)}}
+
+@end
