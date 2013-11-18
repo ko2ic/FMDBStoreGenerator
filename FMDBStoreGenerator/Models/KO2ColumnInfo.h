@@ -22,6 +22,7 @@
 @property (nonatomic ,readonly) BOOL isInteger;
 @property (nonatomic ,readonly) BOOL isVarchar;
 @property (nonatomic ,readonly) BOOL isDate;
+@property (nonatomic ,readonly) BOOL isBool;
 @property (nonatomic ,readonly) BOOL isNSNumber;
 @property (nonatomic ,readonly) BOOL isNSInteger;
 

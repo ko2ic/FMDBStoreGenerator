@@ -43,7 +43,7 @@
     return
     @[{{#withPosition(primaryKeyInfo)}}
       @{@"name":{{columnNameUpperCase}},
-        @"value":{{#isNSInteger}}@({{/isNSInteger}}castEntity.{{propertyName}}{{#isNSInteger}}){{/isNSInteger}}
+        @"value":{{#isNSInteger}}@({{/isNSInteger}}{{#isBool}}[NSNumber numberWithBool:{{/isBool}}castEntity.{{propertyName}}{{#isBool}}]{{/isBool}}{{#isNSInteger}}){{/isNSInteger}}
         }{{^ isEnd}},{{/ isEnd}}{{/withPosition(primaryKeyInfo)}}
       ];
 }

@@ -11,11 +11,12 @@
 #import <Foundation/Foundation.h>
 
 #import "KO2TableInfo.h"
+#import "KO2Directory.h"
 
 @interface KO2Generator : NSObject
 
 @property(nonatomic,strong) NSString* sqlFilePath;
-@property(nonatomic,strong) NSString* outputFilePath;
+@property(nonatomic,strong) KO2Directory* outputDirectory;
 @property(nonatomic,strong) NSString* classPrefix;
 @property(nonatomic,strong) NSString* storeClassSuffix;
 @property(nonatomic,strong) NSString* entityClassSuffix;
@@ -25,7 +26,7 @@
 /**
  * convenience method, for generating with table.
  */
-+ (id)generatorWith:(KO2Generator*) entity andTemplateFileName:(NSString*) filename andOutputFilePath:(NSString*) outputFilePath;
++ (id)generatorWith:(KO2Generator*) entity andTemplateFileName:(NSString*) filename andOutputDirectory:(KO2Directory*) outputDirectory;
 
 /**
  * generates objective-c program file.
@@ -33,6 +34,10 @@
  */
 - (void) generateWithTable:(KO2TableInfo*) table;
 
+/**
+ * generates objective-c program file.
+ * they are core class for fmdb.
+ */
 - (void) generateCoreClass:(NSString*) className;
 
 @end

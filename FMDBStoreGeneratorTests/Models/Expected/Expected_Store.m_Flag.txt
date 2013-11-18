@@ -1,0 +1,103 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "FLGTableNameRepository.h"
+#import "FLGTableNameEntity.h"
+
+@implementation FLGTableNameRepository
+
+#pragma mark - auto-generated
+
+static NSString* const A_FLAG = @"a_flag";
+static NSString* const B_FLAG = @"b_Flag";
+static NSString* const C_FLAG = @"c_FLAG";
+static NSString* const D_FLAG = @"d_flag";
+static NSString* const E_FLAG = @"e_flag";
+static NSString* const F_FLAG = @"f_flag";
+
+- (NSString *) tableName{
+    return @"table_name";
+}
+
+- (NSArray *) columnNames {
+    return [[self primaryKeyColumnNames] arrayByAddingObjectsFromArray:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSArray*) primaryKeyColumnNames
+{
+    return @[A_FLAG,
+        B_FLAG,
+        ];
+}
+
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    return @[C_FLAG,
+        D_FLAG,
+        E_FLAG,
+        F_FLAG,
+        ];
+}
+
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+   FLGTableNameEntity *castEntity = (FLGTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":A_FLAG,
+        @"value":[NSNumber numberWithBool:castEntity.aFlag]
+        },
+      @{@"name":B_FLAG,
+        @"value":[NSNumber numberWithBool:castEntity.bFlag]
+        },
+      ];
+}
+
+
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    FLGTableNameEntity *castEntity = (FLGTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":C_FLAG,
+        @"value":[NSNumber numberWithBool:castEntity.cFlag] ?:[NSNumber numberWithBool:NO] 
+        },
+        @{@"name":D_FLAG,
+        @"value":[NSNumber numberWithBool:castEntity.dFlag] ?:[NSNumber numberWithBool:NO] 
+        },
+        @{@"name":E_FLAG,
+        @"value":[NSNumber numberWithBool:castEntity.eFlag] ?:[NSNumber numberWithBool:NO] 
+        },
+        @{@"name":F_FLAG,
+        @"value":[NSNumber numberWithBool:castEntity.fFlag] ?:[NSNumber numberWithBool:NO] 
+        },
+        
+      ];
+
+}
+
+- (ConverterToEntityBlock ) converterToEntityBlock {
+    ConverterToEntityBlock block = ^id(FMResultSet *rs) {
+        
+        FLGTableNameEntity *entity = [[FLGTableNameEntity alloc] init];
+
+        entity.aFlag = [rs boolForColumn:A_FLAG];
+        entity.bFlag = [rs boolForColumn:B_FLAG];
+        entity.cFlag = [rs boolForColumn:C_FLAG];
+        entity.dFlag = [rs boolForColumn:D_FLAG];
+        entity.eFlag = [rs boolForColumn:E_FLAG];
+        entity.fFlag = [rs boolForColumn:F_FLAG];
+        return entity;
+    };
+    
+    return block;
+}
+
+@end

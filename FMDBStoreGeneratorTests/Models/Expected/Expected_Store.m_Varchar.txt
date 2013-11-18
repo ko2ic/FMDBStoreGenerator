@@ -1,0 +1,103 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "VARTableNameRepository.h"
+#import "VARTableNameEntity.h"
+
+@implementation VARTableNameRepository
+
+#pragma mark - auto-generated
+
+static NSString* const TEXT1 = @"text1";
+static NSString* const TEXT2 = @"text2";
+static NSString* const TEXT3 = @"text3";
+static NSString* const TEXT4 = @"text4";
+static NSString* const TEXT5 = @"text5";
+static NSString* const TEXT6 = @"text6";
+
+- (NSString *) tableName{
+    return @"table_name";
+}
+
+- (NSArray *) columnNames {
+    return [[self primaryKeyColumnNames] arrayByAddingObjectsFromArray:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSArray*) primaryKeyColumnNames
+{
+    return @[TEXT1,
+        TEXT2,
+        ];
+}
+
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    return @[TEXT3,
+        TEXT4,
+        TEXT5,
+        TEXT6,
+        ];
+}
+
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+   VARTableNameEntity *castEntity = (VARTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":TEXT1,
+        @"value":castEntity.text1
+        },
+      @{@"name":TEXT2,
+        @"value":castEntity.text2
+        },
+      ];
+}
+
+
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    VARTableNameEntity *castEntity = (VARTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":TEXT3,
+        @"value":castEntity.text3 
+        },
+        @{@"name":TEXT4,
+        @"value":castEntity.text4 
+        },
+        @{@"name":TEXT5,
+        @"value":castEntity.text5 
+        },
+        @{@"name":TEXT6,
+        @"value":castEntity.text6 
+        },
+        
+      ];
+
+}
+
+- (ConverterToEntityBlock ) converterToEntityBlock {
+    ConverterToEntityBlock block = ^id(FMResultSet *rs) {
+        
+        VARTableNameEntity *entity = [[VARTableNameEntity alloc] init];
+
+        entity.text1 = [rs stringForColumn:TEXT1];
+        entity.text2 = [rs stringForColumn:TEXT2];
+        entity.text3 = [rs stringForColumn:TEXT3];
+        entity.text4 = [rs stringForColumn:TEXT4];
+        entity.text5 = [rs stringForColumn:TEXT5];
+        entity.text6 = [rs stringForColumn:TEXT6];
+        return entity;
+    };
+    
+    return block;
+}
+
+@end

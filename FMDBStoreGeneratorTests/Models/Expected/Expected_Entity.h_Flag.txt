@@ -1,0 +1,22 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+
+@interface FLGTableNameEntity : NSObject
+
+@property(nonatomic) BOOL aFlag;
+@property(nonatomic) BOOL bFlag;
+@property(nonatomic) BOOL cFlag;
+@property(nonatomic) BOOL dFlag;
+@property(nonatomic) BOOL eFlag;
+@property(nonatomic) BOOL fFlag;
+
+@end

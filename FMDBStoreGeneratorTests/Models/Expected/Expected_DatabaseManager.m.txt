@@ -1,0 +1,102 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "PREDatabaseManager.h"
+#import "FMDatabaseQueue.h"
+
+static NSString* const DB_NAME = @"sqlFilePath";
+
+@implementation PREDatabaseManager
+
+@synthesize databaseQueue = queue_;
+
+static PREDatabaseManager *SINGLTON = nil;
+
+static bool isFirstAccess = YES;
+
+#pragma mark - Public Method
+
+// please read ".h"
++ (id)sharedManager
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess = NO;
+        SINGLTON = [[super allocWithZone:NULL]init];    
+    });
+    
+    [SINGLTON initQueue];
+    
+    return SINGLTON;
+}
+
+#pragma mark - Life Cycle
+
+/**
+ * overrides for singlton.
+ * @return singlton object
+ */
++ (id) allocWithZone:(NSZone *)zone
+{
+    return [self sharedManager];
+}
+
+/**
+ * overrides for singlton.
+ * @return singlton object
+ */
+- (id) init
+{
+    if(SINGLTON){
+        return SINGLTON;
+    }
+    if (isFirstAccess) {
+        [self doesNotRecognizeSelector:_cmd];
+    }
+    self = [super init];
+    return self;
+}
+
+# pragma mark - Private Method
+
+/**
+ * initalizes to access db.
+ * relocates to read db file.
+ */
+- (void) initQueue{
+    if (! queue_) {
+        NSFileManager *fm = [NSFileManager defaultManager];
+        
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DB_NAME];
+        
+        NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:DB_NAME];
+        
+        if (![fm fileExistsAtPath:dbPath]) {
+            NSError *error = nil;
+            
+            BOOL ret = [fm copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
+            
+            if (!ret) {
+                NSLog(@"copy failed.%@:%@",[error userInfo],[error localizedDescription]);
+                @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                               reason:[NSString stringWithFormat:@"program error occured.%@", NSStringFromSelector(_cmd)]
+                                             userInfo:[error userInfo]];
+
+                
+            }
+        }
+        queue_ = [FMDatabaseQueue databaseQueueWithPath:dbPath];        
+        
+    }    
+}
+
+@end

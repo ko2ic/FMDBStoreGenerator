@@ -1,0 +1,809 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "PRERepositoryFmdbBase.h"
+#import "PREDatabaseManager.h"
+
+@implementation PRERepositoryFmdbBase
+
+#pragma mark - Template Method
+
+/**
+ * gets table name.
+ * @return table name
+ */
+- (NSString *) tableName;
+{
+    NSLog(@"You must override %@ in a subclass",NSStringFromSelector(_cmd));
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+/**
+ * gets array of column names.
+ * @return array of column names
+ */
+- (NSArray *) columnNames
+{
+    return [NSArray arrayWithObject:@"*"];
+}
+
+/**
+ * gets only array of pk column names.
+ * @return pk column names
+ */
+- (NSArray*) primaryKeyColumnNames
+{
+    NSLog(@"You must override %@ in a subclass",NSStringFromSelector(_cmd));
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+/**
+ * gets array except pk column names.
+ * @return except pk column names
+ */
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    NSLog(@"You must override %@ in a subclass",NSStringFromSelector(_cmd));
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+/**
+ * gets array of pk values.order is [columnNames:].
+ * @return pk values
+ */
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+    NSLog(@"You must override %@ in a subclass",NSStringFromSelector(_cmd));
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+/**
+ * gets array except pk values.order is [columnNames:].
+ * @return pk values
+ */
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    NSLog(@"You must override %@ in a subclass",NSStringFromSelector(_cmd));
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+/**
+ * gets default order clause.
+ * @return order clause
+ */
+- (NSString *) defaultOrderSql
+{
+    return @"";
+}
+
+/**
+ * gets block which convert ResultSet to Entity
+ * @return convert block
+ */
+- (ConverterToEntityBlock ) converterToEntityBlock
+{
+    NSLog(@"You must override %@ in a subclass",NSStringFromSelector(_cmd));
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+#pragma private method
+/**
+ * build update statment for excecuting except nil value column.
+ * @return update statment
+ */
+- (NSString *) buildUpdateExcludesNilSql:(NSArray *)excludesNilNameArray
+{
+    NSMutableString *sql = [NSMutableString string];
+    [sql appendString:@"update "];
+    [sql appendString:[self tableName]];
+    [sql appendString:@" set "];
+    NSUInteger count = [excludesNilNameArray count];
+    for (int i = 0; i < count; i++) {
+        NSString *columnName = [excludesNilNameArray objectAtIndex:i];
+        [sql appendString:columnName];
+        [sql appendString:@" = ?"];
+        if (i != count -1 ) {
+            [sql appendString:@", "];
+        }
+    }
+    
+    NSLog(@"%@:",sql);
+    
+    return sql;
+}
+
+/**
+ * build delete statment.
+ * @return delete statment
+ */
+- (NSString *) buildDeleteSql
+{
+    
+    NSMutableString *sql = [NSMutableString string];
+    [sql appendString:@"delete from "];
+    [sql appendString:[self tableName]];
+    
+    return sql;
+}
+
+/**
+ * build where clause of only pk.
+ * @return where clause
+ */
+- (NSString *) buildWherePkSql:(id) entity
+{
+    
+    NSMutableString *sql = [NSMutableString string];
+    [sql appendString:@" where "];
+    
+    NSArray *names = [[self primaryKeyInfo:entity] valueForKeyPath:@"name"];
+    
+    NSUInteger count = [names count];
+    for (int i = 0; i < count; i++) {
+        NSString *columnName = [names objectAtIndex:i];
+        [sql appendString:columnName];
+        [sql appendString:@" = ?"];
+        if (i != count -1 ) {
+            [sql appendString:@" and "];
+        }
+    }
+    
+    return sql;
+}
+
+- (void) throwIfHasError:(FMDatabase*) db
+{
+    if([_db hadError]){
+        NSLog(@"%d: %@", [_db lastErrorCode], [_db lastErrorMessage]);
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:[NSString stringWithFormat:@"program error occured.%@", NSStringFromSelector(_cmd)]
+                                     userInfo:[[_db lastError] userInfo]];
+    }
+}
+
+
+#pragma mark - Protected Method
+
+/**
+ * execute update statment.
+ * @param sql variable arguments.first specifies sql of update statement , others specify bind parameter.last specifies nil.
+ * @return if YES, success
+ */
+- (BOOL) _executeUpdate:(NSString*)sql, ...{
+    
+    va_list args;
+    va_start(args, sql);
+    
+    NSString* value = va_arg(args, typeof(NSString*));
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    while (value) {
+        [array addObject:value];
+        value = va_arg(args, typeof(NSString*));
+    }
+    va_end(args);
+    
+    NSLog(@"%@; %@",sql,array);
+  
+    BOOL result = [_db executeUpdate:sql withArgumentsInArray:array];
+    
+    [self throwIfHasError:_db];
+    
+    return result;
+    
+}
+
+/**
+ * execute update statment.
+ * @param sql update statement。
+ * @param arguments　bind parameters array
+ * @return if YES, success
+ */
+- (BOOL) _executeUpdate:(NSString*)sql withArgumentsInArray:(NSArray *)arguments{
+    
+    NSLog(@"%@; %@",sql,arguments);
+
+    BOOL result = [_db executeUpdate:sql withArgumentsInArray:arguments];
+    
+    [self throwIfHasError:_db];
+    
+    return result;
+}
+
+/**
+ * execute update statment.
+ * @param sql update statement。
+ * @param arguments　dictionary of bind parameter and the value
+ * @return if YES, success
+ */
+- (BOOL) _executeUpdate:(NSString*)sql withParameterDictionary:(NSDictionary *)arguments{
+    NSLog(@"%@; %@",sql,arguments);
+    
+    BOOL result = [_db executeUpdate:sql withParameterDictionary:arguments];
+    
+    [self throwIfHasError:_db];
+    
+    return result;
+    
+}
+
+/**
+ * execute select statment.
+ * @param sql variable arguments.first specifies sql of select statement , others specify bind parameter.last specifies nil.
+ * @return if YES, success
+ */
+- (FMResultSet *) _executeQuery:(NSString*)sql, ... {
+    va_list args;
+    va_start(args, sql);
+    
+    NSString* value = va_arg(args, typeof(NSString*));
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    while (value) {
+        [array addObject:value];
+        value = va_arg(args, typeof(NSString*));
+    }
+    va_end(args);
+    
+    NSLog(@"%@; %@",sql,array);
+
+    FMResultSet *rs = [_db executeQuery:sql withArgumentsInArray:array];
+    
+    [self throwIfHasError:_db];
+    return rs;
+}
+
+
+/**
+ * execute select statment.
+ * @param sql select statement。
+ * @param arguments　bind parameters array
+ * @return if YES, success
+ */
+- (FMResultSet *) _executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments{
+
+    NSLog(@"%@; %@",sql,arguments);
+
+    FMResultSet *rs = [_db executeQuery:sql withArgumentsInArray:arguments];
+    
+    [self throwIfHasError:_db];
+    
+    return rs;
+}
+
+/**
+ * execute select statment.
+ * @param sql select statement。
+ * @param arguments　dictionary of bind parameter and the value
+ * @return if YES, success
+ */
+- (FMResultSet *) _executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments{
+
+    NSLog(@"%@; %@",sql,arguments);
+
+    FMResultSet *rs = [_db executeQuery:sql withParameterDictionary:arguments];
+    
+    [self throwIfHasError:_db];
+    
+    return rs;
+}
+
+
+/**
+ * Finds all entities with order.
+ * @param orderSql order statement. ex:@"order by hoge"
+ * @return all entities
+ */
+- (NSMutableArray *) _findAllOrderd:(NSString *) orderSql
+{
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    return [self _findAll:orderSql convert:block];
+}
+
+/**
+ * Finds all entities with order.
+ * @param block which convert ResultSet to Entity
+ * @return all entities
+ */
+- (NSMutableArray *) _findAll:(ConverterToEntityBlock )block
+{
+    return [self _findAll:[self defaultOrderSql] convert:block];
+}
+
+/**
+ * Finds all entities with order.
+ * @param orderSql order statement. ex:@"order by hoge"
+ * @param block which convert ResultSet to Entity
+ * @return all entities
+ */
+- (NSMutableArray *) _findAll:(NSString *)orderSql convert:(ConverterToEntityBlock )block
+{
+    NSString *sql = [[self buildSelectSql] stringByAppendingString:orderSql];
+    
+    FMResultSet *rs = [self _executeQuery:sql,nil];
+    
+    NSMutableArray *entityArray = [NSMutableArray array];
+    
+    while ([rs next]) {
+        id entity = block(rs);
+        [entityArray addObject:entity];
+    }
+    
+    [rs close];
+    
+    return entityArray;
+}
+
+/**
+ * Finds entity with "where clause".
+ * @param condition ex)@"where hoge = ?"
+ * @param arguments
+ * @return entity
+ */
+- (id) _findByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments
+{
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    return [self _findByConditionSql:condition withArgumentsInArray:arguments convert:block];
+}
+
+/**
+ * Finds entity with "where clause".
+ * @param condition ex)@"where hoge = ?"
+ * @param arguments
+ * @param block which convert ResultSet to Entity
+ * @return entity
+ */
+- (id) _findByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments convert: (ConverterToEntityBlock )block
+{
+    
+    NSString *sql = [[self buildSelectSql] stringByAppendingString:condition];
+    
+    FMResultSet *rs = [self _executeQuery:sql withArgumentsInArray:arguments];
+    
+    id result = nil;
+    while ([rs next]) {
+        result = block(rs);
+    }
+    
+    [rs close];
+    
+    return result;
+}
+
+/**
+ * Finds entity with "where clause".
+ * @param condition ex)@"where hoge = ?"
+ * @param arguments　dictionary of bind parameter and the value
+ * @return entity
+ */
+- (id) _findByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments
+{
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    return [self _findByConditionSql:condition withParameterDictionary:arguments convert:block];
+}
+
+/**
+ * Finds entity with "where clause".
+ * @param condition ex)@"where hoge = ?"
+ * @param arguments　dictionary of bind parameter and the value
+ * @param block which convert ResultSet to Entity
+ * @return entity
+ */
+- (id) _findByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments convert: (ConverterToEntityBlock )block
+{
+    NSString *sql = [[self buildSelectSql] stringByAppendingString:condition];
+    
+    FMResultSet *rs = [self _executeQuery:sql withParameterDictionary:arguments];
+    
+    id result = nil;
+    while ([rs next]) {
+        result = block(rs);
+    }
+    
+    [rs close];
+    
+    return result;
+}
+
+/**
+ * Finds entities with "where clause".
+ * @param condition ex)where hoge = ? order by hoge
+ * @param arguments　dictionary of bind parameter and the value
+ * @return entities
+ */
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments
+{
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    return [self _findArrayByConditionSql:condition withArgumentsInArray:arguments convert:block];
+}
+
+/**
+ * Finds entities with "where clause".
+ * @param condition ex)@"where hoge = ? order by hoge"
+ * @param arguments　dictionary of bind parameter and the value
+ * @param block which convert ResultSet to Entity
+ * @return entities
+ */
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments convert: (ConverterToEntityBlock )block
+{
+    NSString *sql = [[[[self buildSelectSql] stringByAppendingString:condition] stringByAppendingString:@" "] stringByAppendingString:[self defaultOrderSql]];
+    
+    FMResultSet *rs = [self _executeQuery:sql withArgumentsInArray:arguments];
+    
+    NSMutableArray *entityArray = [NSMutableArray array];
+    
+    while ([rs next]) {
+        id entity = block(rs);
+        [entityArray addObject:entity];
+    }
+    
+    [rs close];
+    
+    return entityArray;
+}
+
+
+/**
+ * Finds entities with "where clause".
+ * @param condition ex)@"where hoge = :hogeKey order by hoge"
+ * @param arguments　dictionary of bind parameter and the value
+ * @return entities
+ */
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments
+{
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    return [self _findArrayByConditionSql:condition withParameterDictionary:arguments convert:block];
+}
+
+/**
+ * Finds entities with "where clause".
+ * @param condition ex)@"where hoge = :hogeKey order by hoge"
+ * @param arguments　dictionary of bind parameter and the value
+ * @param block which convert ResultSet to Entity
+ * @return entities
+ */
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments convert: (ConverterToEntityBlock )block
+{
+    NSString *sql = [[[[self buildSelectSql] stringByAppendingString:condition]stringByAppendingString:@" "] stringByAppendingString:[self defaultOrderSql]];
+    
+    FMResultSet *rs = [self _executeQuery:sql withParameterDictionary:arguments];
+    
+    NSMutableArray *entityArray = [NSMutableArray array];
+    
+    while ([rs next]) {
+        id entity = block(rs);
+        [entityArray addObject:entity];
+    }
+    
+    [rs close];
+    
+    return entityArray;
+}
+
+/**
+ * inserts entity with argments.
+ * @param argments variable arguments.specify bind parameter.last specifies nil.
+ * @return if YES, success
+ */
+- (BOOL) _insertWithArguments:(NSString*)argments, ...
+{
+    va_list args;
+    va_start(args, argments);
+    
+    NSString* value = argments;
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    while (value) {
+        [array addObject:value];
+        value = va_arg(args, typeof(NSString*));
+    }
+    va_end(args);
+    
+    NSString *sql = [self buildInsertSql];
+    
+    return [self _executeUpdate:sql withArgumentsInArray:array];
+}
+
+/**
+ * inserts entity with argments.
+ * @param argments specify bind parameter.
+ * @return if YES, success
+ */
+- (BOOL) _insertWithArgumentsInArray:(NSArray *)arguments
+{
+    NSString *sql = [self buildInsertSql];
+    return [self _executeUpdate:sql withArgumentsInArray:arguments];
+}
+
+/**
+ * Finds entities with "where clause".
+ * @param condition ex) @"where hoge = ?"
+ * @param argments specify bind parameter.
+ * @return if YES, success
+ */
+- (BOOL) _deleteByConditionSql:(NSString *)condition withArgumentsInArray:(NSArray *)arguments
+{
+    NSString *sql = [[[self buildDeleteSql] stringByAppendingString:@" "] stringByAppendingString:condition];
+    return [self _executeUpdate:sql withArgumentsInArray:arguments];
+}
+
+
+#pragma mark - Life Cycle
+
+- (id) init{
+    NSLog(@"must user initializer as [PRERepositoryFmdbBase initWithFMDatabase:]");
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+- (id) initWithFMDatabase:(FMDatabase*) db{
+    self = [super init];
+    
+    if (self) {
+        _db = db;
+    }
+    
+    return self;
+}
+
+- (void)dealloc {
+}
+
+#pragma mark - Public Method
+
+- (id) findByPk:(id) entity
+{
+    NSArray *pkValue = [[self primaryKeyInfo:entity] valueForKeyPath:@"value"];
+    
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    
+    NSString *condition = [self buildWherePkSql:entity];
+    return [self _findByConditionSql:condition withArgumentsInArray:pkValue convert:block];
+}
+
+
+- (NSMutableArray *) findAll
+{
+    ConverterToEntityBlock block = [self converterToEntityBlock];
+    return [self _findAll:block];
+}
+
+- (BOOL) insert:(id) entity
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    [array addObjectsFromArray:[[self primaryKeyInfo:entity] valueForKeyPath:@"value"] ];
+    [array addObjectsFromArray:[[self notPrimaryKeyInfo:entity] valueForKeyPath:@"value"]];
+    
+    return [self _insertWithArgumentsInArray:array];
+}
+
+- (BOOL) insertWithAutoIncrementPk:(id) entity
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    [array addObjectsFromArray:[[self notPrimaryKeyInfo:entity] valueForKeyPath:@"value"]];
+    
+    NSString* sql = [self buildInsertSqlForAutoIncrement];
+
+    return [self _executeUpdate:sql withArgumentsInArray:array];
+}
+
+- (int) insertAll: (NSArray *) entities
+{
+    int successCount = 0;
+    for (id entity in entities) {
+        BOOL isSuccess = [self insert:entity];
+        if (isSuccess) {
+            successCount++;
+        }
+    }
+    return successCount;
+}
+
+
+- (BOOL) update: (id) entity
+{
+    NSArray *pkValue = [[self primaryKeyInfo:entity] valueForKeyPath:@"value"];
+    NSArray *notPkValue = [[self notPrimaryKeyInfo:entity] valueForKeyPath:@"value"];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObjectsFromArray:pkValue];
+    [array addObjectsFromArray:notPkValue];
+    
+    NSMutableArray *newArray = [NSMutableArray array];
+    [newArray addObjectsFromArray:array];
+    [newArray addObjectsFromArray:pkValue];
+    
+    NSString *sql = [[self buildUpdateSql] stringByAppendingString:[self buildWherePkSql:entity]];
+    
+    return [self _executeUpdate:sql withArgumentsInArray:newArray];
+    
+}
+
+
+- (BOOL) updateExcludesNil: (id) entity
+{
+    NSMutableArray *excludesNilValueArray = [NSMutableArray array];
+    NSMutableArray *excludesNilNameArray = [NSMutableArray array];
+    for (NSDictionary *dict in [self notPrimaryKeyInfo:entity]) {
+        NSObject *o = [dict objectForKey:@"value"];
+        if(o != nil && o != [NSNull null]){
+            [excludesNilValueArray addObject:o];
+            [excludesNilNameArray addObject:[dict objectForKey:@"name"]];
+        }
+    }
+    
+    NSString *sql = [[self buildUpdateExcludesNilSql:excludesNilNameArray] stringByAppendingString:[self buildWherePkSql:entity]];
+    
+    [excludesNilValueArray addObjectsFromArray:[[self primaryKeyInfo:entity] valueForKeyPath:@"value"]];
+    
+    return [self _executeUpdate:sql withArgumentsInArray:excludesNilValueArray];
+}
+
+
+- (int) updateAll: (NSArray *) entities
+{
+    int successCount = 0;
+    for (id entity in entities) {
+        BOOL isSuccess = [self update:entity];
+        if (isSuccess) {
+            successCount++;
+        }
+    }
+    return successCount;
+}
+
+
+- (BOOL) deleteByPk: (id) entity
+{
+    NSArray *pkValue = [[self primaryKeyInfo:entity] valueForKeyPath:@"value"];
+    
+    NSString *sql = [[self buildDeleteSql] stringByAppendingString:[self buildWherePkSql:entity]];
+    
+    return [self _executeUpdate:sql withArgumentsInArray:pkValue];
+    
+}
+
+
+- (BOOL) deleteAll
+{
+    NSString *sql = [self buildDeleteSql];
+    return [self _executeUpdate:sql ,nil];
+}
+
+
+- (NSString *) columnNameStr
+{
+    return [self columnNameStrFrom:[self columnNames]];
+}
+
+- (NSString *) columnNameStrForAutoIncrement
+{
+    return [self columnNameStrFrom:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSString *) columnNameStrFrom:(NSArray*)columns
+{
+    NSUInteger count = [columns count];
+    
+    NSMutableString* columnStr = [NSMutableString string];
+    
+    for (int i = 0; i < count ; i++) {
+        [columnStr appendString:[columns objectAtIndex:i]];
+        if (i != count -1 ) {
+            [columnStr appendString:@", "];
+        }
+    }
+    
+    return columnStr;
+}
+
+
+- (NSString *) buildSelectSql
+{
+    NSMutableString *sql = [NSMutableString string];
+    [sql appendString:@"select "];
+    [sql appendString:[self columnNameStr]];
+    [sql appendString:@" from "];
+    [sql appendString:[self tableName]];
+    [sql appendString:@" "];
+    return sql;
+}
+
+
+- (NSString *) buildInsertSql
+{
+    return [self buildInsertSql:YES];
+}
+
+- (NSString *) buildInsertSqlForAutoIncrement
+{
+    return [self buildInsertSql:NO];
+}
+
+- (NSString *) buildInsertSql:(BOOL) isAllColumn
+{
+    NSMutableString *sql = [NSMutableString string];
+    [sql appendString:@"insert into "];
+    [sql appendString:[self tableName]];
+    [sql appendString:@" ("];
+    if (isAllColumn) {
+        [sql appendString:[self columnNameStr]];
+    }else{
+        [sql appendString:[self columnNameStrForAutoIncrement]];
+    }
+
+    [sql appendString:@") values("];
+    
+    NSArray *array = [self columnNames];
+    if (! isAllColumn) {
+        array = [self notPrimaryKeyColumnNames];
+    }
+    
+    NSUInteger count = [array count];
+    for (int i = 0; i < count; i++) {
+        [sql appendString:@"?"];
+        if (i != count -1 ) {
+            [sql appendString:@", "];
+        }
+    }
+    [sql appendString:@")"];
+    
+    return sql;
+}
+
+- (NSString *) buildUpdateSql
+{
+    
+    NSMutableString *sql = [NSMutableString string];
+    [sql appendString:@"update "];
+    [sql appendString:[self tableName]];
+    [sql appendString:@" set "];
+    NSArray *array = [self columnNames];
+    NSUInteger count = [array count];
+    for (int i = 0; i < count; i++) {
+        NSString *columnName = [array objectAtIndex:i];
+        [sql appendString:columnName];
+        [sql appendString:@" = ?"];
+        if (i != count -1 ) {
+            [sql appendString:@", "];
+        }
+    }
+    NSLog(@"%@:",sql);
+    return sql;
+}
+
+- (NSString *) formatNSDate:(NSDate*) date
+{
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    // this line sets systemLoacale because if uses currentLocale, HH format displays "午後3" when of 12 hour format.
+    calendar.locale = [NSLocale systemLocale];
+    calendar.timeZone = [NSTimeZone systemTimeZone];
+    
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.calendar = calendar;
+    
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    return [formatter stringFromDate:date];
+}
+
+
+@end
+

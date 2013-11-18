@@ -1,0 +1,19 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+
+@interface REATableNameEntity : NSObject
+
+@property(strong,nonatomic) NSNumber* tableNameId;
+@property(strong,nonatomic) NSNumber* real2;
+@property(strong,nonatomic) NSNumber* real3;
+
+@end

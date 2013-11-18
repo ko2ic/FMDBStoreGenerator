@@ -1,0 +1,103 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "DATTableNameRepository.h"
+#import "DATTableNameEntity.h"
+
+@implementation DATTableNameRepository
+
+#pragma mark - auto-generated
+
+static NSString* const A_DATETIME = @"a_datetime";
+static NSString* const B_DATETIME = @"b_datetime";
+static NSString* const C_DATETIME = @"c_DateTime";
+static NSString* const D_DATETIME = @"d_dateTime";
+static NSString* const E_DATETIME = @"e_Datetime";
+static NSString* const F_DATETIME = @"f_DateTime";
+
+- (NSString *) tableName{
+    return @"table_name";
+}
+
+- (NSArray *) columnNames {
+    return [[self primaryKeyColumnNames] arrayByAddingObjectsFromArray:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSArray*) primaryKeyColumnNames
+{
+    return @[A_DATETIME,
+        B_DATETIME,
+        ];
+}
+
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    return @[C_DATETIME,
+        D_DATETIME,
+        E_DATETIME,
+        F_DATETIME,
+        ];
+}
+
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+   DATTableNameEntity *castEntity = (DATTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":A_DATETIME,
+        @"value":castEntity.aDatetime
+        },
+      @{@"name":B_DATETIME,
+        @"value":castEntity.bDatetime
+        },
+      ];
+}
+
+
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    DATTableNameEntity *castEntity = (DATTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":C_DATETIME,
+        @"value":castEntity.cDatetime ?:[NSNull null]
+        },
+        @{@"name":D_DATETIME,
+        @"value":castEntity.dDatetime ?:[NSNull null]
+        },
+        @{@"name":E_DATETIME,
+        @"value":castEntity.eDatetime ?:[NSNull null]
+        },
+        @{@"name":F_DATETIME,
+        @"value":castEntity.fDatetime ?:[NSNull null]
+        },
+        
+      ];
+
+}
+
+- (ConverterToEntityBlock ) converterToEntityBlock {
+    ConverterToEntityBlock block = ^id(FMResultSet *rs) {
+        
+        DATTableNameEntity *entity = [[DATTableNameEntity alloc] init];
+
+        entity.aDatetime = [rs dateForColumn:A_DATETIME];
+        entity.bDatetime = [rs dateForColumn:B_DATETIME];
+        entity.cDatetime = [rs dateForColumn:C_DATETIME];
+        entity.dDatetime = [rs dateForColumn:D_DATETIME];
+        entity.eDatetime = [rs dateForColumn:E_DATETIME];
+        entity.fDatetime = [rs dateForColumn:F_DATETIME];
+        return entity;
+    };
+    
+    return block;
+}
+
+@end

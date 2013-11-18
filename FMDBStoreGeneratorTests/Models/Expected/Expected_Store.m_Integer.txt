@@ -1,0 +1,85 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "INTTableNameRepository.h"
+#import "INTTableNameEntity.h"
+
+@implementation INTTableNameRepository
+
+#pragma mark - auto-generated
+
+static NSString* const ID = @"id";
+static NSString* const ID2 = @"id2";
+static NSString* const ID3 = @"id3";
+
+- (NSString *) tableName{
+    return @"table_name";
+}
+
+- (NSArray *) columnNames {
+    return [[self primaryKeyColumnNames] arrayByAddingObjectsFromArray:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSArray*) primaryKeyColumnNames
+{
+    return @[ID,
+        ID2,
+        ];
+}
+
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    return @[ID3,
+        ];
+}
+
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+   INTTableNameEntity *castEntity = (INTTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":ID,
+        @"value":@(castEntity.tableNameId)
+        },
+      @{@"name":ID2,
+        @"value":@(castEntity.id2)
+        },
+      ];
+}
+
+
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    INTTableNameEntity *castEntity = (INTTableNameEntity*)entity;
+    return
+    @[
+      @{@"name":ID3,
+        @"value":castEntity.id3 ?:[NSNull null]
+        },
+        
+      ];
+
+}
+
+- (ConverterToEntityBlock ) converterToEntityBlock {
+    ConverterToEntityBlock block = ^id(FMResultSet *rs) {
+        
+        INTTableNameEntity *entity = [[INTTableNameEntity alloc] init];
+
+        entity.tableNameId = [rs intForColumn:ID];
+        entity.id2 = [rs intForColumn:ID2];
+        entity.id3 = [rs columnIsNull:ID3] ? nil : [rs objectForColumnName:ID3];
+        return entity;
+    };
+    
+    return block;
+}
+
+@end

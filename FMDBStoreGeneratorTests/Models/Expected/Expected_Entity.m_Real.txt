@@ -1,0 +1,20 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "REATableNameEntity.h"
+
+@implementation REATableNameEntity
+
+
+@synthesize tableNameId;
+@synthesize real2;
+@synthesize real3;
+
+@end

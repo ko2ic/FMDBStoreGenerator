@@ -1,0 +1,32 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "PRETransactionService.h"
+#import "PREDatabaseManager.h"
+
+@implementation PRETransactionService
+
+- (id) init {
+    self = [super init];
+    
+    if (self) {
+        _queue = [[PREDatabaseManager sharedManager] databaseQueue];        
+    }
+    
+    return self;
+}
+
+- (void)dealloc {
+	if (_queue) {
+		[_queue close];
+	}
+}
+
+@end

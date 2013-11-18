@@ -1,0 +1,23 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "DATTableNameEntity.h"
+
+@implementation DATTableNameEntity
+
+
+@synthesize aDatetime;
+@synthesize bDatetime;
+@synthesize cDatetime;
+@synthesize dDatetime;
+@synthesize eDatetime;
+@synthesize fDatetime;
+
+@end

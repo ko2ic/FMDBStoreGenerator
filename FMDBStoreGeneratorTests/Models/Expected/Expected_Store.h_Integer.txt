@@ -1,0 +1,17 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+#import "INTTableNameEntity.h"
+#import "INTRepositoryFmdbBase.h"
+
+@interface INTTableNameRepository : INTRepositoryFmdbBase
+
+@end

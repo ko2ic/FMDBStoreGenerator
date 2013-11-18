@@ -1,0 +1,23 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "VARTableNameEntity.h"
+
+@implementation VARTableNameEntity
+
+
+@synthesize text1;
+@synthesize text2;
+@synthesize text3;
+@synthesize text4;
+@synthesize text5;
+@synthesize text6;
+
+@end

@@ -11,9 +11,7 @@
 #import "KO2AppDelegate.h"
 #import "KO2GeneratorService.h"
 #import "KO2Generator.h"
-
-
-
+#import "KO2Directory.h"
 
 @implementation KO2AppDelegate{
     @private KO2Generator* entity_;
@@ -24,7 +22,7 @@
 {
     _classPrefix.delegate = self;
     entity_ = [[KO2GeneratorService new] find];
-    _outputDirectory.stringValue = entity_.outputFilePath;
+    _outputDirectory.stringValue = entity_.outputDirectory.string;
     _sqlFilePath.stringValue = entity_.sqlFilePath;
     _classPrefix.stringValue = entity_.classPrefix;
     _storeClassSuffix.stringValue = entity_.storeClassSuffix;
@@ -71,7 +69,7 @@
 
 - (IBAction)generate:(id)sender {
     entity_.sqlFilePath = _sqlFilePath.stringValue;
-    entity_.outputFilePath = _outputDirectory.stringValue;
+        entity_.outputDirectory = [KO2Directory directoryWithOutputPath:_outputDirectory.stringValue];
     entity_.classPrefix = _classPrefix.stringValue;
     entity_.storeClassSuffix = _storeClassSuffix.stringValue;
     entity_.entityClassSuffix = _entityClassSuffix.stringValue;

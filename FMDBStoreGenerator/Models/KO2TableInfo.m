@@ -47,8 +47,11 @@
 - (NSString*) entityClassName
 {
     NSMutableString* str = [NSMutableString stringWithString:self.tableName];
-    //　!!!: 他に必要であれば条件を追記すること
-    if([str hasPrefix:@"t_"] || [str hasPrefix:@"T_"]){
+
+    if([str hasPrefix:@"m_"] || [str hasPrefix:@"M_"]){
+        [str deleteCharactersInRange:NSMakeRange(0,2)];
+        [str appendString:@"_master"];
+    }else if([str hasPrefix:@"t_"] || [str hasPrefix:@"T_"]){
         [str deleteCharactersInRange:NSMakeRange(0,2)];
     }
     return [[str capitalizedString] stringByReplacingOccurrencesOfString:@"_" withString:@""];

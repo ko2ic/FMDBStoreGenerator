@@ -8,8 +8,10 @@
 //  http://opensource.org/licenses/mit-license.php
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
+#import "AAATableNameMasterEntity.h"
+#import "AAARepositoryFmdbBase.h"
 
-@interface FMDBStoreGeneratorTests : SenTestCase
+@interface AAATableNameMasterRepository : AAARepositoryFmdbBase
 
 @end

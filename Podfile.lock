@@ -7,14 +7,17 @@ PODS:
   - GRMustache (6.6.0):
     - JRSwizzle (~> 1.0)
   - JRSwizzle (1.0)
+  - OCMock (2.2.1)
 
 DEPENDENCIES:
   - FMDB (~> 2.1)
   - GRMustache (~> 6.6.0)
+  - OCMock (~> 2.2.1)
 
 SPEC CHECKSUMS:
   FMDB: 3fd5aaf632ca4ed39e3f101e0398504e6d5b0918
   GRMustache: 51694421ee5b2b1c4faff2a8081c291c0ac8df9b
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
+  OCMock: 80e4cfbc71a0e1bd28caf10a9fda27da7c4c8402
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.28.0

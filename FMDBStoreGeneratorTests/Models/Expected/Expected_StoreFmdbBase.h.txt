@@ -1,0 +1,146 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+#import "FMDatabase.h"
+
+/**
+ * block which convert ResultSet to entity.
+ */
+typedef id (^ConverterToEntityBlock)(FMResultSet *rs);
+
+/**
+ * this class is base for Repository class.
+ */
+@interface PRERepositoryFmdbBase : NSObject{
+    @private
+    __weak FMDatabase *_db;
+}
+
+/**
+ * the only initializer.
+ */
+- (id) initWithFMDatabase:(FMDatabase*) db;
+
+/**
+ * Finds entity associated with a particular primary key.
+ * @return entity
+ */
+- (id) findByPk:(id) entity;
+/**
+ * Finds all entities.
+ * if override [defaultOrderSql:], find by specified order.
+ * @return all entities
+ */
+- (NSMutableArray *) findAll;
+
+/**
+ * Inserts entity.
+ * @param entity
+ * @return If YES, success.
+ */
+- (BOOL) insert: (id) entity;
+/**
+ * Inserts entity.
+ * this method is used only when PK ID is auto increment.
+ * @param entity entity
+ * @return If YES, success.
+ */
+- (BOOL) insertWithAutoIncrementPk:(id) entity;
+/**
+ * Inserts entities
+ * @param entities
+ * @return seccess count
+ */
+- (int) insertAll: (NSArray *) entities;
+
+/**
+ * Updates entity.
+ * @param entity
+ * @return if YES,success
+ */
+- (BOOL) update: (id) entity;
+/**
+ * Updates entity ignore nil.
+ * @param entity
+ * @return if YES,success
+ */
+- (BOOL) updateExcludesNil: (id) entity;
+/**
+ * Updates entites.
+ * @param entites
+ * @return success count
+ */
+- (int) updateAll: (NSArray *) entities;
+
+/**
+ * deletes entity associated with a particular primary key.
+ * @return if YES,success
+ */
+- (BOOL) deleteByPk: (id) entity;
+/**
+ * deletes all entities.
+ * @return if YES,success
+ */
+- (BOOL) deleteAll;
+
+/**
+ * gets comma separated column name.
+ */
+- (NSString *) columnNameStr;
+/**
+ * builds select statement.
+ * @return SQL statement
+ */
+- (NSString *) buildSelectSql;
+/**
+ * builds insert statement.
+ * @return SQL statement
+ */
+- (NSString *) buildInsertSql;
+/**
+ * builds update statement.
+ * @return SQL statement
+ */
+- (NSString *) buildUpdateSql;
+
+/**
+ * formats NSDate for storege.
+ */
+- (NSString *) formatNSDate:(NSDate*) date;
+
+// !!!: methods which is below here is with underscore as prefix. these don`t want to be used except Repository Layer, becase these depend on sql , ResultSet ,and so on.
+- (BOOL) _deleteByConditionSql:(NSString *)condition withArgumentsInArray:(NSArray *)arguments;
+
+- (NSMutableArray *) _findAll:(ConverterToEntityBlock) block;
+- (NSMutableArray *) _findAll:(NSString *)orderSql convert:(ConverterToEntityBlock )block;
+- (NSMutableArray *) _findAllOrderd:(NSString *) orderSql;
+- (id) _findByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments;
+- (id) _findByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments convert:(ConverterToEntityBlock) block;
+- (id) _findByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments;
+- (id) _findByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments convert: (ConverterToEntityBlock )block;
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments;
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withArgumentsInArray:(NSArray *)arguments convert:(ConverterToEntityBlock) block;
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments;
+- (NSMutableArray *) _findArrayByConditionSql:(NSString *) condition withParameterDictionary:(NSDictionary *)arguments convert: (ConverterToEntityBlock )block;
+
+- (BOOL) _executeUpdate:(NSString*)sql, ...NS_REQUIRES_NIL_TERMINATION;
+- (BOOL) _executeUpdate:(NSString*)sql withArgumentsInArray:(NSArray *)arguments;
+- (BOOL) _executeUpdate:(NSString*)sql withParameterDictionary:(NSDictionary *)arguments;
+
+- (FMResultSet *) _executeQuery:(NSString *)sql, ... NS_REQUIRES_NIL_TERMINATION;
+- (FMResultSet *) _executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments;
+- (FMResultSet *) _executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments;
+
+// !!!: methods which is below here is depend on column order.so these don`t want to be used.
+- (BOOL) _insertWithArguments:(NSString*)argments, ...NS_REQUIRES_NIL_TERMINATION;
+- (BOOL) _insertWithArgumentsInArray:(NSArray *)arguments;
+
+@end

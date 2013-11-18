@@ -1,0 +1,23 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "FLGTableNameEntity.h"
+
+@implementation FLGTableNameEntity
+
+
+@synthesize aFlag;
+@synthesize bFlag;
+@synthesize cFlag;
+@synthesize dFlag;
+@synthesize eFlag;
+@synthesize fFlag;
+
+@end

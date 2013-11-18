@@ -9,6 +9,7 @@
 //
 
 #import "KO2GeneratorStore.h"
+#import "KO2Directory.h"
 
 static NSString* const kSqlFilePath = @"generator.sqlFilePath";
 static NSString* const kOutputDirectory = @"generator.outputDirectory";
@@ -27,7 +28,7 @@ static NSString* const kEntityClassSuffix = @"generator.entityClassSuffix";
     KO2Generator *entity = [[KO2Generator alloc] init];
     
     entity.sqlFilePath = [defaults stringForKey:kSqlFilePath];
-    entity.outputFilePath = [defaults stringForKey:kOutputDirectory];
+    entity.outputDirectory = [KO2Directory directoryWithOutputPath:[defaults stringForKey:kOutputDirectory]];
     entity.classPrefix = [defaults stringForKey:kClassPrefix];
     entity.storeClassSuffix = [defaults stringForKey:kStoreClassSuffix];
     entity.entityClassSuffix = [defaults stringForKey:kEntityClassSuffix];
@@ -39,7 +40,7 @@ static NSString* const kEntityClassSuffix = @"generator.entityClassSuffix";
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:entity.sqlFilePath forKey:kSqlFilePath];
-    [defaults setObject:entity.outputFilePath forKey:kOutputDirectory];
+    [defaults setObject:entity.outputDirectory.string forKey:kOutputDirectory];
     [defaults setObject:entity.classPrefix forKey:kClassPrefix];
     [defaults setObject:entity.storeClassSuffix forKey:kStoreClassSuffix];
     [defaults setObject:entity.entityClassSuffix forKey:kEntityClassSuffix];

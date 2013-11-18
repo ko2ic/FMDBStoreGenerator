@@ -1,0 +1,22 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+
+@interface DATTableNameEntity : NSObject
+
+@property(strong,nonatomic) NSDate* aDatetime;
+@property(strong,nonatomic) NSDate* bDatetime;
+@property(strong,nonatomic) NSDate* cDatetime;
+@property(strong,nonatomic) NSDate* dDatetime;
+@property(strong,nonatomic) NSDate* eDatetime;
+@property(strong,nonatomic) NSDate* fDatetime;
+
+@end

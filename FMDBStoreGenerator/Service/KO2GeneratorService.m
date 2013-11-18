@@ -13,6 +13,7 @@
 #import "KO2SqliteMasterStore.h"
 #import "KO2TableInfo.h"
 #import "KO2ColumnInfo.h"
+#import "KO2Directory.h"
 
 @implementation KO2GeneratorService
 
@@ -21,25 +22,20 @@
 
 - (void) generate:(KO2Generator*) entity{
 
-    NSString* modelDirPath = [entity.outputFilePath stringByAppendingString:@"/Models"];
-    NSString* storeClassSuffix = entity.storeClassSuffix;
-    NSString* plural = @"s";
-    if ([entity.storeClassSuffix hasSuffix:@"y"]) {
-        storeClassSuffix = [storeClassSuffix substringToIndex:storeClassSuffix.length-1];
-        plural = @"ies";
-    }
-    NSString* storeDirPath = [NSString stringWithFormat:@"%@/%@%@",entity.outputFilePath,storeClassSuffix,plural];
-    NSString* fmdbDirPath = [entity.outputFilePath stringByAppendingString:@"/fmdb"];
+    KO2Directory* modelDir = [KO2Directory new];
+    if (![modelDir createModelDirectory:entity]) {
+        return;
+    };
     
-    if(![self createDirectory:modelDirPath]){
+    KO2Directory* storeDir = [KO2Directory new];
+    if (![storeDir createStoreDirectory:entity]) {
         return;
-    }
-    if(![self createDirectory:storeDirPath]){
+    };
+
+    KO2Directory* fmdbCoreDir = [KO2Directory new];
+    if (![fmdbCoreDir createFMDBCoreDirectory:entity]) {
         return;
-    }
-    if(![self createDirectory:fmdbDirPath]){
-        return;
-    }
+    };
     
     FMDatabase *db = [FMDatabase databaseWithPath:entity.sqlFilePath];
     
@@ -53,10 +49,10 @@
     NSArray* tables = [sqliteStore findTables:tableNames];
     [sqliteStore close];
     
-    KO2Generator* templateStoreH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStore.h" andOutputFilePath:storeDirPath];
-    KO2Generator* templateStoreM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStore.m" andOutputFilePath:storeDirPath];
-    KO2Generator* templateEntityH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateEntity.h" andOutputFilePath:modelDirPath];
-    KO2Generator* templateEntityM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateEntity.m" andOutputFilePath:modelDirPath];
+    KO2Generator* templateStoreH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStore.h" andOutputDirectory:storeDir];
+    KO2Generator* templateStoreM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStore.m" andOutputDirectory:storeDir];
+    KO2Generator* templateEntityH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateEntity.h" andOutputDirectory:modelDir];
+    KO2Generator* templateEntityM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateEntity.m" andOutputDirectory:modelDir];
     
     for (KO2TableInfo* table in tables) {
         
@@ -68,12 +64,12 @@
         [self store:entity];
     }
     
-    KO2Generator* templateManagerH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateDatabaseManager.h" andOutputFilePath:fmdbDirPath];
-    KO2Generator* templateManagerM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateDatabaseManager.m" andOutputFilePath:fmdbDirPath];
-    KO2Generator* templateFmdbBaseH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStoreFmdbBase.h" andOutputFilePath:fmdbDirPath];
-    KO2Generator* templateFmdbBaseM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStoreFmdbBase.m" andOutputFilePath:fmdbDirPath];
-    KO2Generator* templatetransactionH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateTransactionService.h" andOutputFilePath:fmdbDirPath];
-    KO2Generator* templatetransactionM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateTransactionService.m" andOutputFilePath:fmdbDirPath];
+    KO2Generator* templateManagerH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateDatabaseManager.h" andOutputDirectory:fmdbCoreDir];
+    KO2Generator* templateManagerM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateDatabaseManager.m" andOutputDirectory:fmdbCoreDir];
+    KO2Generator* templateFmdbBaseH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStoreFmdbBase.h" andOutputDirectory:fmdbCoreDir];
+    KO2Generator* templateFmdbBaseM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStoreFmdbBase.m" andOutputDirectory:fmdbCoreDir];
+    KO2Generator* templatetransactionH = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateTransactionService.h" andOutputDirectory:fmdbCoreDir];
+    KO2Generator* templatetransactionM = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateTransactionService.m" andOutputDirectory:fmdbCoreDir];
     
     [templateManagerH generateCoreClass:@"DatabaseManager.h"];
     [templateManagerM generateCoreClass:@"DatabaseManager.m"];
@@ -91,7 +87,7 @@
     KO2Generator* config = [store find];
     if (config == nil) {
         config = [KO2Generator new];
-        config.outputFilePath =  [NSHomeDirectory() stringByAppendingString:@"/Desktop"];
+        config.outputDirectory = [KO2Directory directoryWithOutputPath:[NSHomeDirectory() stringByAppendingString:@"/Desktop"]];
     }
     return config;
 }
@@ -103,12 +99,4 @@
     return [store store:entity];
 }
 
-- (BOOL) createDirectory:(NSString*) dirPath {
-    NSError* error;
-    if(![[NSFileManager defaultManager] createDirectoryAtURL:[NSURL fileURLWithPath:dirPath] withIntermediateDirectories:YES attributes:nil error:&error]){
-        NSLog(@"error occured when has created directory: %@: %@", dirPath, error.localizedDescription);
-        return NO;
-    }
-    return YES;
-}
 @end

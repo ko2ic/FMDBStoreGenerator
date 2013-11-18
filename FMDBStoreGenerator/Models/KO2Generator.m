@@ -20,16 +20,28 @@
     @private NSString* classSuffix_;
 }
 
+#pragma mark - Properties
+
 - (NSString*) sqlFileName{
     return [self.sqlFilePath lastPathComponent];
 }
 
-+ (id)generatorWith:(KO2Generator*) entity andTemplateFileName:(NSString*) filename  andOutputFilePath:(NSString*) outputFilePath;{
-    
-    return [[self alloc]initWithSelf:entity andTemplateFileName:filename andOutputFilePath:outputFilePath];
+- (NSString*) storeClassSuffix{
+    return [_storeClassSuffix capitalizedString];
 }
 
-- (id)initWithSelf:(KO2Generator*) entity andTemplateFileName:(NSString*) filename  andOutputFilePath:(NSString*) outputFilePath;{
+- (NSString*) entityClassSuffix{
+    return [_entityClassSuffix capitalizedString];
+}
+
+#pragma mark - Life Cycle
+
++ (id)generatorWith:(KO2Generator*) entity andTemplateFileName:(NSString*) filename  andOutputDirectory:(KO2Directory*) outputDirectory{
+    
+    return [[self alloc]initWithSelf:entity andTemplateFileName:filename andOutputDirectory:outputDirectory];
+}
+
+- (id)initWithSelf:(KO2Generator*) entity andTemplateFileName:(NSString*) filename  andOutputDirectory:(KO2Directory*) outputDirectory{
 
     self = [super init];
     if (self && entity) {
@@ -37,7 +49,7 @@
         self.classPrefix = entity.classPrefix;
         self.storeClassSuffix = entity.storeClassSuffix;
         self.entityClassSuffix = entity.entityClassSuffix;
-        self.outputFilePath = outputFilePath;
+        self.outputDirectory = outputDirectory;
         
         NSMutableDictionary* placeholder = [NSMutableDictionary dictionary];
         [placeholder setObject:entity.classPrefix forKey:@"prefix"];
@@ -72,7 +84,7 @@
     
     NSFileManager* manager = [NSFileManager defaultManager];
     
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@%@.%@",_outputFilePath,_classPrefix ,table.entityClassName,classSuffix_ ,extention_];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@%@.%@",self.outputDirectory.string,_classPrefix ,table.entityClassName,classSuffix_ ,extention_];
     if([manager createFileAtPath:filePath contents:data attributes:nil]){
         NSLog(@"成功:%@",filePath);
     }else{
@@ -88,7 +100,7 @@
     
     NSFileManager* manager = [NSFileManager defaultManager];
     
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@",_outputFilePath,_classPrefix,classFileName];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@",self.outputDirectory.string,_classPrefix,classFileName];
     if([manager createFileAtPath:filePath contents:data attributes:nil]){
         NSLog(@"成功:%@",filePath);
     }else{

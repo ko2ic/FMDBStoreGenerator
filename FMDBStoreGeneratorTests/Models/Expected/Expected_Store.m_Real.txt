@@ -1,0 +1,85 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import "REATableNameRepository.h"
+#import "REATableNameEntity.h"
+
+@implementation REATableNameRepository
+
+#pragma mark - auto-generated
+
+static NSString* const ID = @"id";
+static NSString* const REAL2 = @"real2";
+static NSString* const REAL3 = @"real3";
+
+- (NSString *) tableName{
+    return @"table_name";
+}
+
+- (NSArray *) columnNames {
+    return [[self primaryKeyColumnNames] arrayByAddingObjectsFromArray:[self notPrimaryKeyColumnNames]];
+}
+
+- (NSArray*) primaryKeyColumnNames
+{
+    return @[ID,
+        ];
+}
+
+- (NSArray*) notPrimaryKeyColumnNames
+{
+    return @[REAL2,
+        REAL3,
+        ];
+}
+
+- (NSArray *) primaryKeyInfo:(id) entity
+{
+   REATableNameEntity *castEntity = (REATableNameEntity*)entity;
+    return
+    @[
+      @{@"name":ID,
+        @"value":castEntity.tableNameId
+        },
+      ];
+}
+
+
+- (NSArray *) notPrimaryKeyInfo:(id) entity
+{
+    REATableNameEntity *castEntity = (REATableNameEntity*)entity;
+    return
+    @[
+      @{@"name":REAL2,
+        @"value":castEntity.real2 ?:[NSNull null]
+        },
+        @{@"name":REAL3,
+        @"value":castEntity.real3 ?:[NSNull null]
+        },
+        
+      ];
+
+}
+
+- (ConverterToEntityBlock ) converterToEntityBlock {
+    ConverterToEntityBlock block = ^id(FMResultSet *rs) {
+        
+        REATableNameEntity *entity = [[REATableNameEntity alloc] init];
+
+        entity.tableNameId = [rs columnIsNull:ID] ? nil : [rs objectForColumnName:ID];
+        entity.real2 = [rs columnIsNull:REAL2] ? nil : [rs objectForColumnName:REAL2];
+        entity.real3 = [rs columnIsNull:REAL3] ? nil : [rs objectForColumnName:REAL3];
+        return entity;
+    };
+    
+    return block;
+}
+
+@end

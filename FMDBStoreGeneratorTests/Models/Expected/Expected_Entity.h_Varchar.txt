@@ -1,0 +1,22 @@
+//
+//  FMDBStoreGenerator
+//
+//  Copyright (c) 2012 Kouji Ishii
+//
+//  This software is released under the MIT License.
+//
+//  http://opensource.org/licenses/mit-license.php
+//
+
+#import <Foundation/Foundation.h>
+
+@interface VARTableNameEntity : NSObject
+
+@property(strong,nonatomic) NSString* text1;
+@property(strong,nonatomic) NSString* text2;
+@property(strong,nonatomic) NSString* text3;
+@property(strong,nonatomic) NSString* text4;
+@property(strong,nonatomic) NSString* text5;
+@property(strong,nonatomic) NSString* text6;
+
+@end

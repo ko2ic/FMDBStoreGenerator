@@ -15,10 +15,37 @@
 		156DFCC717F975B600E0988F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DFCBA17F975B600E0988F /* main.m */; };
 		15E5A77A26DD4C9CB26921B5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364168CE124B414AAF8BFACE /* libPods.a */; };
 		15F23968174CCAF600804F69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F23967174CCAF600804F69 /* Cocoa.framework */; };
-		15F23986174CCAF600804F69 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F23985174CCAF600804F69 /* SenTestingKit.framework */; };
-		15F23987174CCAF600804F69 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F23967174CCAF600804F69 /* Cocoa.framework */; };
-		15F2398F174CCAF600804F69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F2398D174CCAF600804F69 /* InfoPlist.strings */; };
-		15F23992174CCAF600804F69 /* FMDBStoreGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F23991174CCAF600804F69 /* FMDBStoreGeneratorTests.m */; };
+		70FE72EE824748D990864B3C /* libPods-FMDBStoreGeneratorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78F9607EFE2415FAE838B3D /* libPods-FMDBStoreGeneratorTests.a */; };
+		9F0344C11857314400A69D64 /* Expected_Store.h_Master.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F0344BE1857314400A69D64 /* Expected_Store.h_Master.txt */; };
+		9F0344C21857314400A69D64 /* Expected_StoreFmdbBase.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F0344BF1857314400A69D64 /* Expected_StoreFmdbBase.h.txt */; };
+		9F0344C31857314400A69D64 /* Expected_StoreFmdbBase.m.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F0344C01857314400A69D64 /* Expected_StoreFmdbBase.m.txt */; };
+		9F0344C7185733E000A69D64 /* Expected_Store.h_Transaction.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F0344C6185733E000A69D64 /* Expected_Store.h_Transaction.txt */; };
+		9F08F9CB1857688F00BD8629 /* Expected_Store.m_Integer.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9CA1857688F00BD8629 /* Expected_Store.m_Integer.txt */; };
+		9F08F9CD1857752E00BD8629 /* Expected_Store.m_Varchar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9CC1857752E00BD8629 /* Expected_Store.m_Varchar.txt */; };
+		9F08F9CF185778F200BD8629 /* Expected_Store.m_Datetime.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9CE185778F200BD8629 /* Expected_Store.m_Datetime.txt */; };
+		9F08F9D118577CB800BD8629 /* Expected_Store.m_Flag.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9D018577CB800BD8629 /* Expected_Store.m_Flag.txt */; };
+		9F08F9D3185892B100BD8629 /* Expected_Store.m_Real.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9D2185892B100BD8629 /* Expected_Store.m_Real.txt */; };
+		9F08F9E41858A46C00BD8629 /* Expected_Entity.m_Flag.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9E01858A46C00BD8629 /* Expected_Entity.m_Flag.txt */; };
+		9F08F9E51858A46C00BD8629 /* Expected_Entity.m_Integer.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9E11858A46C00BD8629 /* Expected_Entity.m_Integer.txt */; };
+		9F08F9E61858A46C00BD8629 /* Expected_Entity.m_Real.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9E21858A46C00BD8629 /* Expected_Entity.m_Real.txt */; };
+		9F08F9E71858A46C00BD8629 /* Expected_Entity.m_Varchar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9E31858A46C00BD8629 /* Expected_Entity.m_Varchar.txt */; };
+		9F08F9EC1858AD1D00BD8629 /* Expected_Entity.h_Flag.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9E81858AD1D00BD8629 /* Expected_Entity.h_Flag.txt */; };
+		9F08F9ED1858AD1D00BD8629 /* Expected_Entity.h_Integer.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9E91858AD1D00BD8629 /* Expected_Entity.h_Integer.txt */; };
+		9F08F9EE1858AD1D00BD8629 /* Expected_Entity.h_Real.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9EA1858AD1D00BD8629 /* Expected_Entity.h_Real.txt */; };
+		9F08F9EF1858AD1D00BD8629 /* Expected_Entity.h_Varchar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9EB1858AD1D00BD8629 /* Expected_Entity.h_Varchar.txt */; };
+		9F08F9F21858AE4100BD8629 /* Expected_Entity.h_Datetime.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F01858AE4100BD8629 /* Expected_Entity.h_Datetime.txt */; };
+		9F08F9F31858AE4100BD8629 /* Expected_Entity.m_Datetime.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F11858AE4100BD8629 /* Expected_Entity.m_Datetime.txt */; };
+		9F08F9F91858B1F300BD8629 /* Expected_Store.h_Datetime.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F41858B1F300BD8629 /* Expected_Store.h_Datetime.txt */; };
+		9F08F9FA1858B1F300BD8629 /* Expected_Store.h_Flag.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F51858B1F300BD8629 /* Expected_Store.h_Flag.txt */; };
+		9F08F9FB1858B1F300BD8629 /* Expected_Store.h_Integer.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F61858B1F300BD8629 /* Expected_Store.h_Integer.txt */; };
+		9F08F9FC1858B1F300BD8629 /* Expected_Store.h_Real.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F71858B1F300BD8629 /* Expected_Store.h_Real.txt */; };
+		9F08F9FD1858B1F300BD8629 /* Expected_Store.h_Varchar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F9F81858B1F300BD8629 /* Expected_Store.h_Varchar.txt */; };
+		9F08FA281858B72600BD8629 /* KO2DirectoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F08FA271858B72600BD8629 /* KO2DirectoryTests.m */; };
+		9F14974C18391DF500F70101 /* KO2Directory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F14974B18391DF500F70101 /* KO2Directory.m */; };
+		9F3908F0184F5B190003F87C /* Expected_DatabaseManager.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F3908EF184F5B190003F87C /* Expected_DatabaseManager.h.txt */; };
+		9F3908F6184F72790003F87C /* Expected_DatabaseManager.m.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F3908F1184F72790003F87C /* Expected_DatabaseManager.m.txt */; };
+		9F3908F9184F72790003F87C /* Expected_TransactionService.h.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F3908F4184F72790003F87C /* Expected_TransactionService.h.txt */; };
+		9F3908FA184F72790003F87C /* Expected_TransactionService.m.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F3908F5184F72790003F87C /* Expected_TransactionService.m.txt */; };
 		9F421CB71807C1B3004CA245 /* TemplateEntity.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB31807C1B3004CA245 /* TemplateEntity.h.mustache */; };
 		9F421CB81807C1B3004CA245 /* TemplateEntity.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB41807C1B3004CA245 /* TemplateEntity.m.mustache */; };
 		9F421CB91807C1B3004CA245 /* TemplateStore.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F421CB51807C1B3004CA245 /* TemplateStore.h.mustache */; };
@@ -28,18 +55,22 @@
 		9F421CD11807FC58004CA245 /* KO2GeneratorService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CCA1807FC58004CA245 /* KO2GeneratorService.m */; };
 		9F421CD21807FC58004CA245 /* KO2GeneratorStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CCD1807FC58004CA245 /* KO2GeneratorStore.m */; };
 		9F421CD31807FC58004CA245 /* PositionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F421CD01807FC58004CA245 /* PositionFilter.m */; };
+		9F5A083418460A4F00300B05 /* KO2GeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A083318460A4F00300B05 /* KO2GeneratorTests.m */; };
+		9F65ADE4183D1C500041A7C7 /* KO2ColumnInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F65ADE3183D1C500041A7C7 /* KO2ColumnInfoTests.m */; };
+		9F85C1EB183D196400B3D664 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F967D88181FDF210042F754 /* XCTest.framework */; };
+		9F85C1F1183D196500B3D664 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F85C1EF183D196500B3D664 /* InfoPlist.strings */; };
 		9F900E23180D4176004755E9 /* KO2SqliteMasterStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F900E22180D4176004755E9 /* KO2SqliteMasterStore.m */; };
+		9F957E5E1844AAA10078756B /* KO2TableInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F957E5D1844AAA10078756B /* KO2TableInfoTests.m */; };
 		9F967CCD181E92A20042F754 /* TemplateDatabaseManager.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CC7181E92A20042F754 /* TemplateDatabaseManager.h.mustache */; };
 		9F967CCE181E92A20042F754 /* TemplateDatabaseManager.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CC8181E92A20042F754 /* TemplateDatabaseManager.m.mustache */; };
 		9F967CCF181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CC9181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache */; };
 		9F967CD0181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CCA181E92A20042F754 /* TemplateStoreFmdbBase.m.mustache */; };
 		9F967CD1181E92A20042F754 /* TemplateTransactionService.h.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CCB181E92A20042F754 /* TemplateTransactionService.h.mustache */; };
 		9F967CD2181E92A20042F754 /* TemplateTransactionService.m.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 9F967CCC181E92A20042F754 /* TemplateTransactionService.m.mustache */; };
-		E3E1785121A5483799665D7A /* libPods-FMDBStoreGeneratorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78F9607EFE2415FAE838B3D /* libPods-FMDBStoreGeneratorTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		15F23988174CCAF600804F69 /* PBXContainerItemProxy */ = {
+		9F85C1F5183D196500B3D664 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15F2395C174CCAF600804F69 /* Project object */;
 			proxyType = 1;
@@ -66,14 +97,40 @@
 		15F2396A174CCAF600804F69 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		15F2396B174CCAF600804F69 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		15F2396C174CCAF600804F69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		15F23984174CCAF600804F69 /* FMDBStoreGeneratorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMDBStoreGeneratorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F23985174CCAF600804F69 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		15F2398C174CCAF600804F69 /* FMDBStoreGeneratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FMDBStoreGeneratorTests-Info.plist"; sourceTree = "<group>"; };
-		15F2398E174CCAF600804F69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		15F23990174CCAF600804F69 /* FMDBStoreGeneratorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBStoreGeneratorTests.h; sourceTree = "<group>"; };
-		15F23991174CCAF600804F69 /* FMDBStoreGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBStoreGeneratorTests.m; sourceTree = "<group>"; };
 		364168CE124B414AAF8BFACE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBStoreGeneratorTests.xcconfig"; path = "Pods/Pods-FMDBStoreGeneratorTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		9F0344BE1857314400A69D64 /* Expected_Store.h_Master.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Master.txt; sourceTree = "<group>"; };
+		9F0344BF1857314400A69D64 /* Expected_StoreFmdbBase.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_StoreFmdbBase.h.txt; sourceTree = "<group>"; };
+		9F0344C01857314400A69D64 /* Expected_StoreFmdbBase.m.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_StoreFmdbBase.m.txt; sourceTree = "<group>"; };
+		9F0344C6185733E000A69D64 /* Expected_Store.h_Transaction.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Transaction.txt; sourceTree = "<group>"; };
+		9F08F9CA1857688F00BD8629 /* Expected_Store.m_Integer.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.m_Integer.txt; sourceTree = "<group>"; };
+		9F08F9CC1857752E00BD8629 /* Expected_Store.m_Varchar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.m_Varchar.txt; sourceTree = "<group>"; };
+		9F08F9CE185778F200BD8629 /* Expected_Store.m_Datetime.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.m_Datetime.txt; sourceTree = "<group>"; };
+		9F08F9D018577CB800BD8629 /* Expected_Store.m_Flag.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.m_Flag.txt; sourceTree = "<group>"; };
+		9F08F9D2185892B100BD8629 /* Expected_Store.m_Real.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.m_Real.txt; sourceTree = "<group>"; };
+		9F08F9E01858A46C00BD8629 /* Expected_Entity.m_Flag.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.m_Flag.txt; sourceTree = "<group>"; };
+		9F08F9E11858A46C00BD8629 /* Expected_Entity.m_Integer.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.m_Integer.txt; sourceTree = "<group>"; };
+		9F08F9E21858A46C00BD8629 /* Expected_Entity.m_Real.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.m_Real.txt; sourceTree = "<group>"; };
+		9F08F9E31858A46C00BD8629 /* Expected_Entity.m_Varchar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.m_Varchar.txt; sourceTree = "<group>"; };
+		9F08F9E81858AD1D00BD8629 /* Expected_Entity.h_Flag.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.h_Flag.txt; sourceTree = "<group>"; };
+		9F08F9E91858AD1D00BD8629 /* Expected_Entity.h_Integer.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.h_Integer.txt; sourceTree = "<group>"; };
+		9F08F9EA1858AD1D00BD8629 /* Expected_Entity.h_Real.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.h_Real.txt; sourceTree = "<group>"; };
+		9F08F9EB1858AD1D00BD8629 /* Expected_Entity.h_Varchar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.h_Varchar.txt; sourceTree = "<group>"; };
+		9F08F9F01858AE4100BD8629 /* Expected_Entity.h_Datetime.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.h_Datetime.txt; sourceTree = "<group>"; };
+		9F08F9F11858AE4100BD8629 /* Expected_Entity.m_Datetime.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Entity.m_Datetime.txt; sourceTree = "<group>"; };
+		9F08F9F41858B1F300BD8629 /* Expected_Store.h_Datetime.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Datetime.txt; sourceTree = "<group>"; };
+		9F08F9F51858B1F300BD8629 /* Expected_Store.h_Flag.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Flag.txt; sourceTree = "<group>"; };
+		9F08F9F61858B1F300BD8629 /* Expected_Store.h_Integer.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Integer.txt; sourceTree = "<group>"; };
+		9F08F9F71858B1F300BD8629 /* Expected_Store.h_Real.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Real.txt; sourceTree = "<group>"; };
+		9F08F9F81858B1F300BD8629 /* Expected_Store.h_Varchar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Varchar.txt; sourceTree = "<group>"; };
+		9F08FA271858B72600BD8629 /* KO2DirectoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2DirectoryTests.m; sourceTree = "<group>"; };
+		9F14974A18391DF500F70101 /* KO2Directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2Directory.h; sourceTree = "<group>"; };
+		9F14974B18391DF500F70101 /* KO2Directory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2Directory.m; sourceTree = "<group>"; };
+		9F3908EF184F5B190003F87C /* Expected_DatabaseManager.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_DatabaseManager.h.txt; sourceTree = "<group>"; };
+		9F3908F1184F72790003F87C /* Expected_DatabaseManager.m.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_DatabaseManager.m.txt; sourceTree = "<group>"; };
+		9F3908F4184F72790003F87C /* Expected_TransactionService.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_TransactionService.h.txt; sourceTree = "<group>"; };
+		9F3908F5184F72790003F87C /* Expected_TransactionService.m.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_TransactionService.m.txt; sourceTree = "<group>"; };
 		9F421CB31807C1B3004CA245 /* TemplateEntity.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateEntity.h.mustache; sourceTree = "<group>"; };
 		9F421CB41807C1B3004CA245 /* TemplateEntity.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateEntity.m.mustache; sourceTree = "<group>"; };
 		9F421CB51807C1B3004CA245 /* TemplateStore.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateStore.h.mustache; sourceTree = "<group>"; };
@@ -87,8 +144,15 @@
 		9F421CCD1807FC58004CA245 /* KO2GeneratorStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2GeneratorStore.m; sourceTree = "<group>"; };
 		9F421CCF1807FC58004CA245 /* PositionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionFilter.h; sourceTree = "<group>"; };
 		9F421CD01807FC58004CA245 /* PositionFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionFilter.m; sourceTree = "<group>"; };
+		9F5A083318460A4F00300B05 /* KO2GeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2GeneratorTests.m; sourceTree = "<group>"; };
+		9F65ADE3183D1C500041A7C7 /* KO2ColumnInfoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2ColumnInfoTests.m; sourceTree = "<group>"; };
+		9F85C1EA183D196400B3D664 /* FMDBStoreGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMDBStoreGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F85C1EE183D196500B3D664 /* FMDBStoreGeneratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FMDBStoreGeneratorTests-Info.plist"; sourceTree = "<group>"; };
+		9F85C1F0183D196500B3D664 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F85C1F4183D196500B3D664 /* FMDBStoreGeneratorTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FMDBStoreGeneratorTests-Prefix.pch"; sourceTree = "<group>"; };
 		9F900E21180D4176004755E9 /* KO2SqliteMasterStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2SqliteMasterStore.h; sourceTree = "<group>"; };
 		9F900E22180D4176004755E9 /* KO2SqliteMasterStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2SqliteMasterStore.m; sourceTree = "<group>"; };
+		9F957E5D1844AAA10078756B /* KO2TableInfoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2TableInfoTests.m; sourceTree = "<group>"; };
 		9F967CC7181E92A20042F754 /* TemplateDatabaseManager.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateDatabaseManager.h.mustache; sourceTree = "<group>"; };
 		9F967CC8181E92A20042F754 /* TemplateDatabaseManager.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateDatabaseManager.m.mustache; sourceTree = "<group>"; };
 		9F967CC9181E92A20042F754 /* TemplateStoreFmdbBase.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateStoreFmdbBase.h.mustache; sourceTree = "<group>"; };
@@ -109,13 +173,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		15F23980174CCAF600804F69 /* Frameworks */ = {
+		9F85C1E7183D196400B3D664 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F23986174CCAF600804F69 /* SenTestingKit.framework in Frameworks */,
-				15F23987174CCAF600804F69 /* Cocoa.framework in Frameworks */,
-				E3E1785121A5483799665D7A /* libPods-FMDBStoreGeneratorTests.a in Frameworks */,
+				9F85C1EB183D196400B3D664 /* XCTest.framework in Frameworks */,
+				70FE72EE824748D990864B3C /* libPods-FMDBStoreGeneratorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,10 +197,12 @@
 		156DFCA417F975B600E0988F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				156DFCA517F975B600E0988F /* KO2ColumnInfo.h */,
-				156DFCA617F975B600E0988F /* KO2ColumnInfo.m */,
 				156DFCA717F975B600E0988F /* KO2TableInfo.h */,
 				156DFCA817F975B600E0988F /* KO2TableInfo.m */,
+				156DFCA517F975B600E0988F /* KO2ColumnInfo.h */,
+				156DFCA617F975B600E0988F /* KO2ColumnInfo.m */,
+				9F14974A18391DF500F70101 /* KO2Directory.h */,
+				9F14974B18391DF500F70101 /* KO2Directory.m */,
 				9F421CC21807D73E004CA245 /* KO2Generator.h */,
 				9F421CC31807D73E004CA245 /* KO2Generator.m */,
 			);
@@ -161,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				15F2396D174CCAF600804F69 /* FMDBStoreGenerator */,
-				15F2398A174CCAF600804F69 /* FMDBStoreGeneratorTests */,
+				9F85C1EC183D196400B3D664 /* FMDBStoreGeneratorTests */,
 				15F23966174CCAF600804F69 /* Frameworks */,
 				15F23965174CCAF600804F69 /* Products */,
 				0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */,
@@ -173,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				15F23964174CCAF600804F69 /* FMDBStoreGenerator.app */,
-				15F23984174CCAF600804F69 /* FMDBStoreGeneratorTests.octest */,
+				9F85C1EA183D196400B3D664 /* FMDBStoreGeneratorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,23 +278,39 @@
 			path = FMDBStoreGenerator;
 			sourceTree = "<group>";
 		};
-		15F2398A174CCAF600804F69 /* FMDBStoreGeneratorTests */ = {
+		9F3908EE184F5B190003F87C /* Expected */ = {
 			isa = PBXGroup;
 			children = (
-				15F23990174CCAF600804F69 /* FMDBStoreGeneratorTests.h */,
-				15F23991174CCAF600804F69 /* FMDBStoreGeneratorTests.m */,
-				15F2398B174CCAF600804F69 /* Supporting Files */,
+				9F3908EF184F5B190003F87C /* Expected_DatabaseManager.h.txt */,
+				9F3908F1184F72790003F87C /* Expected_DatabaseManager.m.txt */,
+				9F3908F4184F72790003F87C /* Expected_TransactionService.h.txt */,
+				9F3908F5184F72790003F87C /* Expected_TransactionService.m.txt */,
+				9F0344BF1857314400A69D64 /* Expected_StoreFmdbBase.h.txt */,
+				9F0344C01857314400A69D64 /* Expected_StoreFmdbBase.m.txt */,
+				9F0344BE1857314400A69D64 /* Expected_Store.h_Master.txt */,
+				9F0344C6185733E000A69D64 /* Expected_Store.h_Transaction.txt */,
+				9F08F9E91858AD1D00BD8629 /* Expected_Entity.h_Integer.txt */,
+				9F08F9E11858A46C00BD8629 /* Expected_Entity.m_Integer.txt */,
+				9F08F9F61858B1F300BD8629 /* Expected_Store.h_Integer.txt */,
+				9F08F9CA1857688F00BD8629 /* Expected_Store.m_Integer.txt */,
+				9F08F9EB1858AD1D00BD8629 /* Expected_Entity.h_Varchar.txt */,
+				9F08F9E31858A46C00BD8629 /* Expected_Entity.m_Varchar.txt */,
+				9F08F9F81858B1F300BD8629 /* Expected_Store.h_Varchar.txt */,
+				9F08F9CC1857752E00BD8629 /* Expected_Store.m_Varchar.txt */,
+				9F08F9F01858AE4100BD8629 /* Expected_Entity.h_Datetime.txt */,
+				9F08F9F11858AE4100BD8629 /* Expected_Entity.m_Datetime.txt */,
+				9F08F9F41858B1F300BD8629 /* Expected_Store.h_Datetime.txt */,
+				9F08F9CE185778F200BD8629 /* Expected_Store.m_Datetime.txt */,
+				9F08F9E81858AD1D00BD8629 /* Expected_Entity.h_Flag.txt */,
+				9F08F9E01858A46C00BD8629 /* Expected_Entity.m_Flag.txt */,
+				9F08F9F51858B1F300BD8629 /* Expected_Store.h_Flag.txt */,
+				9F08F9D018577CB800BD8629 /* Expected_Store.m_Flag.txt */,
+				9F08F9EA1858AD1D00BD8629 /* Expected_Entity.h_Real.txt */,
+				9F08F9E21858A46C00BD8629 /* Expected_Entity.m_Real.txt */,
+				9F08F9F71858B1F300BD8629 /* Expected_Store.h_Real.txt */,
+				9F08F9D2185892B100BD8629 /* Expected_Store.m_Real.txt */,
 			);
-			path = FMDBStoreGeneratorTests;
-			sourceTree = "<group>";
-		};
-		15F2398B174CCAF600804F69 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				15F2398C174CCAF600804F69 /* FMDBStoreGeneratorTests-Info.plist */,
-				15F2398D174CCAF600804F69 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			path = Expected;
 			sourceTree = "<group>";
 		};
 		9F421CB21807C1B3004CA245 /* Templates */ = {
@@ -288,6 +369,61 @@
 			path = Template;
 			sourceTree = "<group>";
 		};
+		9F85C1EC183D196400B3D664 /* FMDBStoreGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F85C1FA183D19DE00B3D664 /* Control */,
+				9F85C1FB183D19DE00B3D664 /* Models */,
+				9F85C1FC183D19DE00B3D664 /* Service */,
+				9F85C1ED183D196500B3D664 /* Supporting Files */,
+			);
+			path = FMDBStoreGeneratorTests;
+			sourceTree = "<group>";
+		};
+		9F85C1ED183D196500B3D664 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F85C1EE183D196500B3D664 /* FMDBStoreGeneratorTests-Info.plist */,
+				9F85C1EF183D196500B3D664 /* InfoPlist.strings */,
+				9F85C1F4183D196500B3D664 /* FMDBStoreGeneratorTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F85C1FA183D19DE00B3D664 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		9F85C1FB183D19DE00B3D664 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9F3908EE184F5B190003F87C /* Expected */,
+				9F957E5D1844AAA10078756B /* KO2TableInfoTests.m */,
+				9F65ADE3183D1C500041A7C7 /* KO2ColumnInfoTests.m */,
+				9F08FA271858B72600BD8629 /* KO2DirectoryTests.m */,
+				9F5A083318460A4F00300B05 /* KO2GeneratorTests.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9F85C1FC183D19DE00B3D664 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9F85C1FD183D19DE00B3D664 /* Stores */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9F85C1FD183D19DE00B3D664 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,26 +446,25 @@
 			productReference = 15F23964174CCAF600804F69 /* FMDBStoreGenerator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		15F23983174CCAF600804F69 /* FMDBStoreGeneratorTests */ = {
+		9F85C1E9183D196400B3D664 /* FMDBStoreGeneratorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15F23998174CCAF600804F69 /* Build configuration list for PBXNativeTarget "FMDBStoreGeneratorTests" */;
+			buildConfigurationList = 9F85C1F7183D196500B3D664 /* Build configuration list for PBXNativeTarget "FMDBStoreGeneratorTests" */;
 			buildPhases = (
-				1084A745490742DC9203B768 /* Check Pods Manifest.lock */,
-				15F2397F174CCAF600804F69 /* Sources */,
-				15F23980174CCAF600804F69 /* Frameworks */,
-				15F23981174CCAF600804F69 /* Resources */,
-				15F23982174CCAF600804F69 /* ShellScript */,
-				E31A31669BAF4DBF970449A5 /* Copy Pods Resources */,
+				FB5E819C6E8E43529AFCAA9B /* Check Pods Manifest.lock */,
+				9F85C1E6183D196400B3D664 /* Sources */,
+				9F85C1E7183D196400B3D664 /* Frameworks */,
+				9F85C1E8183D196400B3D664 /* Resources */,
+				97C6DC1A98764F6180145D47 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				15F23989174CCAF600804F69 /* PBXTargetDependency */,
+				9F85C1F6183D196500B3D664 /* PBXTargetDependency */,
 			);
 			name = FMDBStoreGeneratorTests;
 			productName = FMDBStoreGeneratorTests;
-			productReference = 15F23984174CCAF600804F69 /* FMDBStoreGeneratorTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 9F85C1EA183D196400B3D664 /* FMDBStoreGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -338,8 +473,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = KO2;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					9F85C1E9183D196400B3D664 = {
+						TestTargetID = 15F23963174CCAF600804F69;
+					};
+				};
 			};
 			buildConfigurationList = 15F2395F174CCAF600804F69 /* Build configuration list for PBXProject "FMDBStoreGenerator" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -355,7 +495,7 @@
 			projectRoot = "";
 			targets = (
 				15F23963174CCAF600804F69 /* FMDBStoreGenerator */,
-				15F23983174CCAF600804F69 /* FMDBStoreGeneratorTests */,
+				9F85C1E9183D196400B3D664 /* FMDBStoreGeneratorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,11 +521,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		15F23981174CCAF600804F69 /* Resources */ = {
+		9F85C1E8183D196400B3D664 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F2398F174CCAF600804F69 /* InfoPlist.strings in Resources */,
+				9F08F9FA1858B1F300BD8629 /* Expected_Store.h_Flag.txt in Resources */,
+				9F08F9FB1858B1F300BD8629 /* Expected_Store.h_Integer.txt in Resources */,
+				9F3908FA184F72790003F87C /* Expected_TransactionService.m.txt in Resources */,
+				9F08F9F31858AE4100BD8629 /* Expected_Entity.m_Datetime.txt in Resources */,
+				9F08F9E51858A46C00BD8629 /* Expected_Entity.m_Integer.txt in Resources */,
+				9F85C1F1183D196500B3D664 /* InfoPlist.strings in Resources */,
+				9F3908F0184F5B190003F87C /* Expected_DatabaseManager.h.txt in Resources */,
+				9F3908F6184F72790003F87C /* Expected_DatabaseManager.m.txt in Resources */,
+				9F08F9CD1857752E00BD8629 /* Expected_Store.m_Varchar.txt in Resources */,
+				9F0344C11857314400A69D64 /* Expected_Store.h_Master.txt in Resources */,
+				9F0344C7185733E000A69D64 /* Expected_Store.h_Transaction.txt in Resources */,
+				9F08F9E71858A46C00BD8629 /* Expected_Entity.m_Varchar.txt in Resources */,
+				9F08F9D118577CB800BD8629 /* Expected_Store.m_Flag.txt in Resources */,
+				9F3908F9184F72790003F87C /* Expected_TransactionService.h.txt in Resources */,
+				9F08F9EC1858AD1D00BD8629 /* Expected_Entity.h_Flag.txt in Resources */,
+				9F08F9ED1858AD1D00BD8629 /* Expected_Entity.h_Integer.txt in Resources */,
+				9F08F9CF185778F200BD8629 /* Expected_Store.m_Datetime.txt in Resources */,
+				9F0344C21857314400A69D64 /* Expected_StoreFmdbBase.h.txt in Resources */,
+				9F08F9CB1857688F00BD8629 /* Expected_Store.m_Integer.txt in Resources */,
+				9F08F9F21858AE4100BD8629 /* Expected_Entity.h_Datetime.txt in Resources */,
+				9F08F9E61858A46C00BD8629 /* Expected_Entity.m_Real.txt in Resources */,
+				9F08F9F91858B1F300BD8629 /* Expected_Store.h_Datetime.txt in Resources */,
+				9F08F9EE1858AD1D00BD8629 /* Expected_Entity.h_Real.txt in Resources */,
+				9F0344C31857314400A69D64 /* Expected_StoreFmdbBase.m.txt in Resources */,
+				9F08F9E41858A46C00BD8629 /* Expected_Entity.m_Flag.txt in Resources */,
+				9F08F9D3185892B100BD8629 /* Expected_Store.m_Real.txt in Resources */,
+				9F08F9FC1858B1F300BD8629 /* Expected_Store.h_Real.txt in Resources */,
+				9F08F9FD1858B1F300BD8629 /* Expected_Store.h_Varchar.txt in Resources */,
+				9F08F9EF1858AD1D00BD8629 /* Expected_Entity.h_Varchar.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,32 +574,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
-		1084A745490742DC9203B768 /* Check Pods Manifest.lock */ = {
+		97C6DC1A98764F6180145D47 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
-		15F23982174CCAF600804F69 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-FMDBStoreGeneratorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		98C52F1D5E2846889493CEF3 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -447,19 +603,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
-		E31A31669BAF4DBF970449A5 /* Copy Pods Resources */ = {
+		FB5E819C6E8E43529AFCAA9B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-FMDBStoreGeneratorTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -472,6 +629,7 @@
 				156DFCC717F975B600E0988F /* main.m in Sources */,
 				156DFCBD17F975B600E0988F /* KO2TableInfo.m in Sources */,
 				9F421CD21807FC58004CA245 /* KO2GeneratorStore.m in Sources */,
+				9F14974C18391DF500F70101 /* KO2Directory.m in Sources */,
 				156DFCBC17F975B600E0988F /* KO2ColumnInfo.m in Sources */,
 				9F421CD11807FC58004CA245 /* KO2GeneratorService.m in Sources */,
 				9F421CD31807FC58004CA245 /* PositionFilter.m in Sources */,
@@ -480,21 +638,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		15F2397F174CCAF600804F69 /* Sources */ = {
+		9F85C1E6183D196400B3D664 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F23992174CCAF600804F69 /* FMDBStoreGeneratorTests.m in Sources */,
+				9F65ADE4183D1C500041A7C7 /* KO2ColumnInfoTests.m in Sources */,
+				9F5A083418460A4F00300B05 /* KO2GeneratorTests.m in Sources */,
+				9F08FA281858B72600BD8629 /* KO2DirectoryTests.m in Sources */,
+				9F957E5E1844AAA10078756B /* KO2TableInfoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		15F23989174CCAF600804F69 /* PBXTargetDependency */ = {
+		9F85C1F6183D196500B3D664 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 15F23963174CCAF600804F69 /* FMDBStoreGenerator */;
-			targetProxy = 15F23988174CCAF600804F69 /* PBXContainerItemProxy */;
+			targetProxy = 9F85C1F5183D196500B3D664 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -515,10 +676,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		15F2398D174CCAF600804F69 /* InfoPlist.strings */ = {
+		9F85C1EF183D196500B3D664 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				15F2398E174CCAF600804F69 /* en */,
+				9F85C1F0183D196500B3D664 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -530,7 +691,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -563,7 +723,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -611,35 +770,56 @@
 			};
 			name = Release;
 		};
-		15F23999174CCAF600804F69 /* Debug */ = {
+		9F85C1F8183D196500B3D664 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMDBStoreGenerator.app/Contents/MacOS/FMDBStoreGenerator";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FMDBStoreGenerator/FMDBStoreGenerator-Prefix.pch";
+				GCC_PREFIX_HEADER = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		15F2399A174CCAF600804F69 /* Release */ = {
+		9F85C1F9183D196500B3D664 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMDBStoreGenerator.app/Contents/MacOS/FMDBStoreGenerator";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FMDBStoreGenerator/FMDBStoreGenerator-Prefix.pch";
+				GCC_PREFIX_HEADER = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -664,11 +844,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15F23998174CCAF600804F69 /* Build configuration list for PBXNativeTarget "FMDBStoreGeneratorTests" */ = {
+		9F85C1F7183D196500B3D664 /* Build configuration list for PBXNativeTarget "FMDBStoreGeneratorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				15F23999174CCAF600804F69 /* Debug */,
-				15F2399A174CCAF600804F69 /* Release */,
+				9F85C1F8183D196500B3D664 /* Debug */,
+				9F85C1F9183D196500B3D664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
