@@ -278,6 +278,13 @@
 			path = FMDBStoreGenerator;
 			sourceTree = "<group>";
 		};
+		9F2BB1CE1860C12900CD231E /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		9F3908EE184F5B190003F87C /* Expected */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +379,7 @@
 		9F85C1EC183D196400B3D664 /* FMDBStoreGeneratorTests */ = {
 			isa = PBXGroup;
 			children = (
+				9F2BB1CE1860C12900CD231E /* Test */,
 				9F85C1FA183D19DE00B3D664 /* Control */,
 				9F85C1FB183D19DE00B3D664 /* Models */,
 				9F85C1FC183D19DE00B3D664 /* Service */,
@@ -782,6 +790,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -792,6 +802,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -811,12 +822,15 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "FMDBStoreGeneratorTests/FMDBStoreGeneratorTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
