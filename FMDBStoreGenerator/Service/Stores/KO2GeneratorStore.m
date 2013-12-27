@@ -16,6 +16,8 @@ static NSString* const kOutputDirectory = @"generator.outputDirectory";
 static NSString* const kClassPrefix = @"generator.classPrefix";
 static NSString* const kStoreClassSuffix = @"generator.storeClassSuffix";
 static NSString* const kEntityClassSuffix = @"generator.entityClassSuffix";
+static NSString* const kOverwriteCoreClass = @"generator.overwriteCoreClass";
+static NSString* const kOverwriteStoreAndEntityClass = @"generator.overwriteStoreAndEntityClass";
 
 @implementation KO2GeneratorStore
 
@@ -32,6 +34,8 @@ static NSString* const kEntityClassSuffix = @"generator.entityClassSuffix";
     entity.classPrefix = [defaults stringForKey:kClassPrefix];
     entity.storeClassSuffix = [defaults stringForKey:kStoreClassSuffix];
     entity.entityClassSuffix = [defaults stringForKey:kEntityClassSuffix];
+    entity.overwriteCoreClass = [defaults boolForKey:kOverwriteCoreClass];
+    entity.overwriteStoreAndEntityClass = [defaults boolForKey:kOverwriteStoreAndEntityClass];
     
     return entity;
 }
@@ -44,6 +48,8 @@ static NSString* const kEntityClassSuffix = @"generator.entityClassSuffix";
     [defaults setObject:entity.classPrefix forKey:kClassPrefix];
     [defaults setObject:entity.storeClassSuffix forKey:kStoreClassSuffix];
     [defaults setObject:entity.entityClassSuffix forKey:kEntityClassSuffix];
+    [defaults setBool:entity.overwriteCoreClass forKey:kOverwriteCoreClass];
+    [defaults setBool:entity.overwriteStoreAndEntityClass forKey:kOverwriteStoreAndEntityClass];
     
     return YES;
 }

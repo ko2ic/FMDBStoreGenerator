@@ -27,6 +27,8 @@
     _classPrefix.stringValue = entity_.classPrefix;
     _storeClassSuffix.stringValue = entity_.storeClassSuffix;
     _entityClassSuffix.stringValue = entity_.entityClassSuffix;
+    _overwriteCoreClass.stringValue = [NSString stringWithFormat:@"%d", entity_.overwriteCoreClass ];
+    _overwriteStoreAndEntityClass.stringValue = [NSString stringWithFormat:@"%d", entity_.overwriteStoreAndEntityClass ];
 }
 
 - (void)dealloc {
@@ -73,6 +75,8 @@
     entity_.classPrefix = _classPrefix.stringValue;
     entity_.storeClassSuffix = _storeClassSuffix.stringValue;
     entity_.entityClassSuffix = _entityClassSuffix.stringValue;
+    entity_.overwriteCoreClass = _overwriteCoreClass.stringValue.boolValue;
+    entity_.overwriteStoreAndEntityClass = _overwriteStoreAndEntityClass.stringValue.boolValue;
     
     KO2GeneratorService* service = [KO2GeneratorService new];
     [service generate:entity_];

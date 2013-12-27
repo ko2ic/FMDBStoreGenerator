@@ -20,6 +20,8 @@
 @property(nonatomic,strong) NSString* classPrefix;
 @property(nonatomic,strong) NSString* storeClassSuffix;
 @property(nonatomic,strong) NSString* entityClassSuffix;
+@property(nonatomic) BOOL overwriteCoreClass;
+@property(nonatomic) BOOL overwriteStoreAndEntityClass;
 
 - (NSString*) sqlFileName;
 

@@ -25,4 +25,8 @@
 
 @property (weak) IBOutlet NSTextField *entityClassSuffix;
 
+@property (weak) IBOutlet NSButton *overwriteCoreClass;
+
+@property (weak) IBOutlet NSButton *overwriteStoreAndEntityClass;
+
 @end

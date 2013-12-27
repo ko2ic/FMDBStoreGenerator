@@ -47,7 +47,7 @@
 
 - (void)tearDown
 {
-//    [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
     [directoryMock stopMocking];
     [bundleMock stopMocking];
     [super tearDown];
@@ -60,6 +60,7 @@
     entity.classPrefix = @"PRE";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+//    entity.overwriteCoreClass = YES;
     
     KO2Generator* target = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateDatabaseManager.h" andOutputDirectory:directoryMock];
     
@@ -76,6 +77,7 @@
     entity.classPrefix = @"PRE";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteCoreClass = YES;
     
     KO2Generator* target = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateDatabaseManager.m" andOutputDirectory:directoryMock];
     
@@ -92,6 +94,7 @@
     entity.classPrefix = @"PRE";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteCoreClass = YES;
     
     KO2Generator* target = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStoreFmdbBase.h" andOutputDirectory:directoryMock];
     
@@ -110,7 +113,8 @@
     entity.classPrefix = @"PRE";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
-
+    entity.overwriteCoreClass = YES;
+    
     KO2Generator* target = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateStoreFmdbBase.m" andOutputDirectory:directoryMock];
     
     // test target
@@ -128,6 +132,7 @@
     entity.classPrefix = @"PRE";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteCoreClass = YES;
     
     KO2Generator* target = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateTransactionService.h" andOutputDirectory:directoryMock];
     
@@ -145,6 +150,7 @@
     entity.classPrefix = @"PRE";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteCoreClass = YES;
     
     KO2Generator* target = [KO2Generator generatorWith:entity andTemplateFileName:@"TemplateTransactionService.m" andOutputDirectory:directoryMock];
     
@@ -161,6 +167,8 @@
     entity.classPrefix = @"AAA";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"m_table_name"];
 
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];    
@@ -182,6 +190,8 @@
     entity.classPrefix = @"AAA";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"t_table_name"];
     
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];
@@ -203,6 +213,8 @@
     entity.classPrefix = @"INT";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"table_name"];
     
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];
@@ -252,6 +264,8 @@
     entity.classPrefix = @"VAR";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"table_name"];
     
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];
@@ -322,6 +336,8 @@
     entity.classPrefix = @"DAT";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"table_name"];
     
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];
@@ -393,6 +409,8 @@
     entity.classPrefix = @"FLG";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"table_name"];
     
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];
@@ -464,6 +482,8 @@
     entity.classPrefix = @"REA";
     entity.storeClassSuffix = @"repository";
     entity.entityClassSuffix = @"entity";
+    entity.overwriteStoreAndEntityClass = YES;    
+    
     KO2TableInfo* table = [KO2TableInfo tableInfoWithTableName:@"table_name"];
     
     KO2ColumnInfo* column1 = [[KO2ColumnInfo alloc] initWithEntityName:table.entityClassName];

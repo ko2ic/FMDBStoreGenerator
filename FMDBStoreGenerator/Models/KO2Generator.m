@@ -50,6 +50,8 @@
         self.storeClassSuffix = entity.storeClassSuffix;
         self.entityClassSuffix = entity.entityClassSuffix;
         self.outputDirectory = outputDirectory;
+        self.overwriteCoreClass = entity.overwriteCoreClass;
+        self.overwriteStoreAndEntityClass = entity.overwriteStoreAndEntityClass;
         
         NSMutableDictionary* placeholder = [NSMutableDictionary dictionary];
         [placeholder setObject:entity.classPrefix forKey:@"prefix"];
@@ -62,7 +64,7 @@
         
         if ([filename rangeOfString:@"Store"].location != NSNotFound) {
             classSuffix_ = entity.storeClassSuffix;
-        }else         if ([filename rangeOfString:@"Entity"].location != NSNotFound) {
+        }else if ([filename rangeOfString:@"Entity"].location != NSNotFound) {
             classSuffix_ = entity.entityClassSuffix;
         }
         extention_ = [filename pathExtension];
@@ -85,10 +87,13 @@
     NSFileManager* manager = [NSFileManager defaultManager];
     
     NSString *filePath = [NSString stringWithFormat:@"%@/%@%@%@.%@",self.outputDirectory.string,_classPrefix ,table.entityClassName,classSuffix_ ,extention_];
-    if([manager createFileAtPath:filePath contents:data attributes:nil]){
-        NSLog(@"成功:%@",filePath);
-    }else{
-        NSLog(@"失敗:%@",filePath);
+    
+    if ([self isGenerationStoreAndEntityClass:filePath]) {
+        if([manager createFileAtPath:filePath contents:data attributes:nil]){
+            NSLog(@"Success : %@",filePath);
+        }else{
+            NSLog(@"Failure : %@",filePath);
+        }
     }
 }
 
@@ -101,11 +106,34 @@
     NSFileManager* manager = [NSFileManager defaultManager];
     
     NSString *filePath = [NSString stringWithFormat:@"%@/%@%@",self.outputDirectory.string,_classPrefix,classFileName];
-    if([manager createFileAtPath:filePath contents:data attributes:nil]){
-        NSLog(@"成功:%@",filePath);
-    }else{
-        NSLog(@"失敗:%@",filePath);
+    if ([self isGenerationCoreClass:filePath]) {
+        if([manager createFileAtPath:filePath contents:data attributes:nil]){
+            NSLog(@"Success : %@",filePath);
+        }else{
+            NSLog(@"Failure : %@",filePath);
+        }
     }
+}
+
+#pragma mark - Private Method
+- (BOOL) isGenerationCoreClass:(NSString*) path
+{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (_overwriteCoreClass || (!_overwriteCoreClass && ![manager fileExistsAtPath:path isDirectory:NO])) {
+        return YES;
+    }
+    return NO;
+    
+}
+
+- (BOOL) isGenerationStoreAndEntityClass:(NSString*) path
+{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (_overwriteStoreAndEntityClass || (!_overwriteStoreAndEntityClass && ![manager fileExistsAtPath:path isDirectory:NO])) {
+        return YES;
+    }
+    return NO;
+    
 }
 
 @end
