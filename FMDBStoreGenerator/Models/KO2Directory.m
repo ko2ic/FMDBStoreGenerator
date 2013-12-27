@@ -51,7 +51,7 @@
         storeClassSuffix = [storeClassSuffix substringToIndex:storeClassSuffix.length-1];
         plural = @"ies";
     }
-    NSString* storeDirPath = [NSString stringWithFormat:@"%@/%@%@",entity.outputDirectory.string,storeClassSuffix,plural];
+    NSString* storeDirPath = [NSString stringWithFormat:@"%@/Service/%@%@",entity.outputDirectory.string,storeClassSuffix,plural];
     
     if(![self createDirectory:storeDirPath]){
         return NO;
@@ -62,7 +62,7 @@
 }
 
 - (BOOL) createFMDBCoreDirectory:(KO2Generator*) entity{
-    NSString* fmdbDirPath = [entity.outputDirectory.string stringByAppendingString:@"/fmdb"];
+    NSString* fmdbDirPath = [entity.outputDirectory.string stringByAppendingString:@"/Service/Core"];
     if(![self createDirectory:fmdbDirPath]){
         return NO;
     }

@@ -77,7 +77,7 @@
     method_exchangeImplementations(mockMethod, privateMethod);
     
     XCTAssertTrue(result);
-    XCTAssertEqualObjects(target.string, @"/Path/Repositories");
+    XCTAssertEqualObjects(target.string, @"/Path/Service/Repositories");
 }
 
 - (void)testCreateFMDBCoreDirectory
@@ -97,7 +97,7 @@
     method_exchangeImplementations(mockMethod, privateMethod);    
     
     XCTAssertTrue(result);
-    XCTAssertEqualObjects(target.string, @"/Path/fmdb");
+    XCTAssertEqualObjects(target.string, @"/Path/Service/Core");
 }
 
 - (void)testCreateDirectory_YES
