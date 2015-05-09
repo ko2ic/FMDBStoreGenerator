@@ -80,7 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		156DFCA217F975B600E0988F /* KO2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2AppDelegate.h; sourceTree = "<group>"; };
 		156DFCA317F975B600E0988F /* KO2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KO2AppDelegate.m; sourceTree = "<group>"; };
 		156DFCA517F975B600E0988F /* KO2ColumnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KO2ColumnInfo.h; sourceTree = "<group>"; };
@@ -99,7 +98,8 @@
 		15F2396C174CCAF600804F69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15F23985174CCAF600804F69 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		364168CE124B414AAF8BFACE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBStoreGeneratorTests.xcconfig"; path = "Pods/Pods-FMDBStoreGeneratorTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		60947B1E0E43B0A927F427E4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		79964957E8CE2BB485D7F8E8 /* Pods-FMDBStoreGeneratorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBStoreGeneratorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMDBStoreGeneratorTests/Pods-FMDBStoreGeneratorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F0344BE1857314400A69D64 /* Expected_Store.h_Master.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_Store.h_Master.txt; sourceTree = "<group>"; };
 		9F0344BF1857314400A69D64 /* Expected_StoreFmdbBase.h.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_StoreFmdbBase.h.txt; sourceTree = "<group>"; };
 		9F0344C01857314400A69D64 /* Expected_StoreFmdbBase.m.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Expected_StoreFmdbBase.m.txt; sourceTree = "<group>"; };
@@ -160,7 +160,9 @@
 		9F967CCB181E92A20042F754 /* TemplateTransactionService.h.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateTransactionService.h.mustache; sourceTree = "<group>"; };
 		9F967CCC181E92A20042F754 /* TemplateTransactionService.m.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TemplateTransactionService.m.mustache; sourceTree = "<group>"; };
 		9F967D88181FDF210042F754 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E2E888A650791BD04872D5DA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E78F9607EFE2415FAE838B3D /* libPods-FMDBStoreGeneratorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FMDBStoreGeneratorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3244227EB3B5D7C3527A18 /* Pods-FMDBStoreGeneratorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBStoreGeneratorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FMDBStoreGeneratorTests/Pods-FMDBStoreGeneratorTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +231,7 @@
 				9F85C1EC183D196400B3D664 /* FMDBStoreGeneratorTests */,
 				15F23966174CCAF600804F69 /* Frameworks */,
 				15F23965174CCAF600804F69 /* Products */,
-				0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */,
-				960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */,
+				61F0FD79395C011307903F69 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,6 +277,17 @@
 				156DFCAD17F975B600E0988F /* Supporting Files */,
 			);
 			path = FMDBStoreGenerator;
+			sourceTree = "<group>";
+		};
+		61F0FD79395C011307903F69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60947B1E0E43B0A927F427E4 /* Pods.debug.xcconfig */,
+				E2E888A650791BD04872D5DA /* Pods.release.xcconfig */,
+				79964957E8CE2BB485D7F8E8 /* Pods-FMDBStoreGeneratorTests.debug.xcconfig */,
+				ED3244227EB3B5D7C3527A18 /* Pods-FMDBStoreGeneratorTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		9F2BB1CE1860C12900CD231E /* Test */ = {
@@ -594,7 +606,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-FMDBStoreGeneratorTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMDBStoreGeneratorTests/Pods-FMDBStoreGeneratorTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		98C52F1D5E2846889493CEF3 /* Copy Pods Resources */ = {
@@ -609,7 +621,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
 		FB5E819C6E8E43529AFCAA9B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -754,7 +766,7 @@
 		};
 		15F23996174CCAF600804F69 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */;
+			baseConfigurationReference = 60947B1E0E43B0A927F427E4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -767,7 +779,7 @@
 		};
 		15F23997174CCAF600804F69 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EDA6569B2D542F7A67D8B7C /* Pods.xcconfig */;
+			baseConfigurationReference = E2E888A650791BD04872D5DA /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -780,7 +792,7 @@
 		};
 		9F85C1F8183D196500B3D664 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */;
+			baseConfigurationReference = 79964957E8CE2BB485D7F8E8 /* Pods-FMDBStoreGeneratorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMDBStoreGenerator.app/Contents/MacOS/FMDBStoreGenerator";
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -811,7 +823,7 @@
 		};
 		9F85C1F9183D196500B3D664 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 960E716160C643ACACD27CE2 /* Pods-FMDBStoreGeneratorTests.xcconfig */;
+			baseConfigurationReference = ED3244227EB3B5D7C3527A18 /* Pods-FMDBStoreGeneratorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMDBStoreGenerator.app/Contents/MacOS/FMDBStoreGenerator";
 				CLANG_WARN_BOOL_CONVERSION = YES;
